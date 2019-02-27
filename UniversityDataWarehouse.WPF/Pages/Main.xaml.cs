@@ -33,7 +33,7 @@ namespace UniversityDataWarehouse.WPF.Pages
             {
                 ViewModel.Logout();
                 
-                //TODO: Redirect to login page
+                MainWindow.WindowFrame.Navigate(new Login());
             }
             else
             {

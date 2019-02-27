@@ -10,9 +10,9 @@ namespace UniversityDataWarehouse.WPF.ViewModels
         public IEnumerable<NavigationMenuItemModel> MenuItems => GetMenuItems();
         
         //Dependency injection
-        private AuthService _authService;
+        private IAuthService _authService;
 
-        public MainPageViewModel(AuthService authService)
+        public MainPageViewModel(IAuthService authService)
         {
             _authService = authService;
         }
