@@ -1,0 +1,39 @@
+using System.Collections.Generic;
+using UniversityDataWarehouse.Models;
+using UniversityDataWarehouse.Services;
+using UniversityDataWarehouse.WPF.Pages;
+
+namespace UniversityDataWarehouse.WPF.ViewModels
+{
+    public class MainPageViewModel
+    {
+        public IEnumerable<NavigationMenuItemModel> MenuItems => GetMenuItems();
+        
+        //Dependency injection
+        private AuthService _authService;
+
+        public MainPageViewModel(AuthService authService)
+        {
+            _authService = authService;
+        }
+
+        public IEnumerable<NavigationMenuItemModel> GetMenuItems()
+        {
+            var menuItems = new List<NavigationMenuItemModel>();
+
+            menuItems.Add(new NavigationMenuItemModel()
+            {
+                Content = "Home",
+                Glyph = char.ConvertFromUtf32(0xE80F).ToString(),
+                ViewType = typeof(Main)
+            });
+
+            return menuItems;
+        }
+
+        public void Logout()
+        {
+            _authService.Logout();
+        }
+    }
+}
