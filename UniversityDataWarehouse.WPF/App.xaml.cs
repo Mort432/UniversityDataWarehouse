@@ -26,6 +26,7 @@ namespace UniversityDataWarehouse.WPF
 
             //View models
             builder.RegisterType<MainPageViewModel>().InstancePerDependency();
+            builder.RegisterType<LoginViewModel>().InstancePerDependency();
 
             Container = builder.Build();
         }

@@ -6,10 +6,11 @@ namespace UniversityDataWarehouse.Services
     {
         public User AuthorizedUser { get; set; }
 
-        public void Login(User user)
+        public bool Login(User user)
         {
             //TODO: Real login logic
             AuthorizedUser = user;
+            return true;
         }
 
         public void Logout()

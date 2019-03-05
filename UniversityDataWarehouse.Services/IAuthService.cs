@@ -5,7 +5,7 @@ namespace UniversityDataWarehouse.Services
     public interface IAuthService
     {
         User AuthorizedUser { get; set; }
-        void Login(User user);
+        bool Login(User user);
         void Logout();
     }
 }
