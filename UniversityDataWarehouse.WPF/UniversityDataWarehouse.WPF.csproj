@@ -67,6 +67,9 @@
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </ApplicationDefinition>
+        <Compile Include="Pages\Home.xaml.cs">
+          <DependentUpon>Home.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Pages\Login.xaml.cs">
           <DependentUpon>Login.xaml</DependentUpon>
         </Compile>
@@ -84,6 +87,7 @@
             <DependentUpon>MainWindow.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Page Include="Pages\Home.xaml" />
         <Page Include="Pages\Login.xaml" />
         <Page Include="Pages\Main.xaml" />
     </ItemGroup>

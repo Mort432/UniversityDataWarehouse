@@ -25,7 +25,7 @@ namespace UniversityDataWarehouse.WPF.ViewModels
             {
                 Content = "Home",
                 Glyph = char.ConvertFromUtf32(0xE80F).ToString(),
-                ViewType = typeof(Main)
+                ViewType = typeof(Home)
             });
 
             return menuItems;
