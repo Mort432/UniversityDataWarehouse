@@ -5,8 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:UniversityDataWarehouse.WPF.Pages"
       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-      mc:Ignorable="d"
-      Title="Login" Height="450" Width="800">
+      mc:Ignorable="d">
     
       <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="500">
             <TextBlock HorizontalAlignment="Center" FontSize="21" Text="University Data Warehouse"></TextBlock>

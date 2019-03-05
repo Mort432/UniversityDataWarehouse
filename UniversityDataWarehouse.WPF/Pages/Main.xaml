@@ -6,14 +6,14 @@
       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
       xmlns:local="clr-namespace:UniversityDataWarehouse.WPF.Pages"
       xmlns:models="clr-namespace:UniversityDataWarehouse.Models;assembly=UniversityDataWarehouse.Models"
-      mc:Ignorable="d"
-      Title="Main" Height="450" Width="800">
+      mc:Ignorable="d">
     
       <Controls:HamburgerMenu
             x:Name="HamburgerMenu"
             IsPaneOpen="True"
             ItemInvoked="HamburgerMenu_OnItemInvoked"
-            ItemsSource="{Binding MenuItems, Mode=OneWay}">
+            ItemsSource="{Binding MenuItems, Mode=OneWay}"
+            VerticalScrollBarOnLeftSide="False">
             
             <Controls:HamburgerMenu.ItemTemplate>
                   <DataTemplate DataType="{x:Type models:NavigationMenuItemModel}">
