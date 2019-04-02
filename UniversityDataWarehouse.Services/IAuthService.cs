@@ -1,4 +1,4 @@
-using UniversityDataWarehouse.Models;
+using UniversityDataWarehouse.Data.Entities;
 
 namespace UniversityDataWarehouse.Services
 {

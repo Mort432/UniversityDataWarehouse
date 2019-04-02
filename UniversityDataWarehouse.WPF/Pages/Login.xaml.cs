@@ -1,7 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using Autofac;
-using UniversityDataWarehouse.Models;
+using UniversityDataWarehouse.Data.Entities;
 using UniversityDataWarehouse.WPF.ViewModels;
 
 namespace UniversityDataWarehouse.WPF.Pages

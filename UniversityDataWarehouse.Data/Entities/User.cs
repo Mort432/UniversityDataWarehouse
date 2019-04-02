@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace UniversityDataWarehouse.Models
+namespace UniversityDataWarehouse.Data.Entities
 {
     public class User
     {

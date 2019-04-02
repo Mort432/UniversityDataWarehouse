@@ -43,9 +43,9 @@
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\UniversityDataWarehouse.Models\UniversityDataWarehouse.Models.csproj">
-        <Project>{b3b17c78-5451-4d1f-9c09-bba40e44344c}</Project>
-        <Name>UniversityDataWarehouse.Models</Name>
+      <ProjectReference Include="..\UniversityDataWarehouse.Data\UniversityDataWarehouse.Data.csproj">
+        <Project>{1093390a-13a6-4655-b859-2f108aa597df}</Project>
+        <Name>UniversityDataWarehouse.Data</Name>
       </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

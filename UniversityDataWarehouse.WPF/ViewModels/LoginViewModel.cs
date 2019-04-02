@@ -1,4 +1,4 @@
-using UniversityDataWarehouse.Models;
+using UniversityDataWarehouse.Data.Entities;
 using UniversityDataWarehouse.Services;
 
 namespace UniversityDataWarehouse.WPF.ViewModels

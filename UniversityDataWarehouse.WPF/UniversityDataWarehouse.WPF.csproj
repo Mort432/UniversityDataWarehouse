@@ -113,6 +113,10 @@
         <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\UniversityDataWarehouse.Data\UniversityDataWarehouse.Data.csproj">
+        <Project>{1093390a-13a6-4655-b859-2f108aa597df}</Project>
+        <Name>UniversityDataWarehouse.Data</Name>
+      </ProjectReference>
       <ProjectReference Include="..\UniversityDataWarehouse.Models\UniversityDataWarehouse.Models.csproj">
         <Project>{b3b17c78-5451-4d1f-9c09-bba40e44344c}</Project>
         <Name>UniversityDataWarehouse.Models</Name>

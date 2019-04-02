@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityDataWarehouse.Ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityDataWarehouse.Models", "UniversityDataWarehouse.Models\UniversityDataWarehouse.Models.csproj", "{B3B17C78-5451-4D1F-9C09-BBA40E44344C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityDataWarehouse.Repositories", "UniversityDataWarehouse.Repositories\UniversityDataWarehouse.Repositories.csproj", "{DE65B088-3C04-47B3-8BDA-7AB1B929B4D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityDataWarehouse.Data", "UniversityDataWarehouse.Data\UniversityDataWarehouse.Data.csproj", "{1093390A-13A6-4655-B859-2F108AA597DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,9 +26,9 @@ Global
 		{B3B17C78-5451-4D1F-9C09-BBA40E44344C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3B17C78-5451-4D1F-9C09-BBA40E44344C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3B17C78-5451-4D1F-9C09-BBA40E44344C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DE65B088-3C04-47B3-8BDA-7AB1B929B4D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE65B088-3C04-47B3-8BDA-7AB1B929B4D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE65B088-3C04-47B3-8BDA-7AB1B929B4D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE65B088-3C04-47B3-8BDA-7AB1B929B4D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1093390A-13A6-4655-B859-2F108AA597DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1093390A-13A6-4655-B859-2F108AA597DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1093390A-13A6-4655-B859-2F108AA597DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1093390A-13A6-4655-B859-2F108AA597DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

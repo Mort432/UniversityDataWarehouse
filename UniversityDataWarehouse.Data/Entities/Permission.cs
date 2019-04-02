@@ -1,4 +1,4 @@
-namespace UniversityDataWarehouse.Models
+namespace UniversityDataWarehouse.Data.Entities
 {
     public enum Permission
     {
