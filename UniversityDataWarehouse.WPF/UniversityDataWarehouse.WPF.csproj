@@ -126,5 +126,8 @@
         <Name>UniversityDataWarehouse.Services</Name>
       </ProjectReference>
     </ItemGroup>
+    <ItemGroup>
+      <Content Include="connections.config" />
+    </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
