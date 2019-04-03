@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using Autofac;
+using UniversityDataWarehouse.Data.Contexts;
 using UniversityDataWarehouse.Services;
 using UniversityDataWarehouse.WPF.ViewModels;
 
