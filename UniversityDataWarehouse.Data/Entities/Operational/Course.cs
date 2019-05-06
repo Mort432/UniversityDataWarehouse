@@ -7,5 +7,6 @@ namespace UniversityDataWarehouse.Data.Entities.Operational
         public string Name { get; set; }
         
         public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<CourseModule> CourseModules { get; set; }
     }
 }

@@ -62,10 +62,12 @@
         <Compile Include="Entities\Operational\Course.cs" />
         <Compile Include="Entities\Operational\CourseModule.cs" />
         <Compile Include="Entities\Operational\Enrollment.cs" />
+        <Compile Include="Entities\Operational\Graduation.cs" />
         <Compile Include="Entities\Operational\Module.cs" />
         <Compile Include="Entities\Operational\ModuleRun.cs" />
         <Compile Include="Entities\Operational\Result.cs" />
         <Compile Include="Entities\Operational\Student.cs" />
+        <Compile Include="Entities\Operational\AcademicYear.cs" />
         <Compile Include="Entities\Permission.cs" />
         <Compile Include="Entities\User.cs" />
         <Compile Include="Initializers\Seeds\PermissionSeed.cs" />
