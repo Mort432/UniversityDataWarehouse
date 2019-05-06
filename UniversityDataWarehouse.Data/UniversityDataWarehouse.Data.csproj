@@ -56,13 +56,24 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Contexts\OracleContext.cs" />
+        <Compile Include="Entities\Dimensional\AcademicYearDim.cs" />
+        <Compile Include="Entities\Dimensional\CampusDim.cs" />
+        <Compile Include="Entities\Dimensional\ClassificationDim.cs" />
+        <Compile Include="Entities\Dimensional\CountryDim.cs" />
+        <Compile Include="Entities\Dimensional\CourseDim.cs" />
+        <Compile Include="Entities\Dimensional\GenderDim.cs" />
+        <Compile Include="Entities\Dimensional\LecturerDim.cs" />
+        <Compile Include="Entities\Dimensional\ModuleDim.cs" />
         <Compile Include="Entities\EntityBase.cs" />
         <Compile Include="Entities\IEntity.cs" />
         <Compile Include="Entities\Operational\Assignment.cs" />
+        <Compile Include="Entities\Operational\Campus.cs" />
+        <Compile Include="Entities\Operational\Complaint.cs" />
         <Compile Include="Entities\Operational\Course.cs" />
         <Compile Include="Entities\Operational\CourseModule.cs" />
         <Compile Include="Entities\Operational\Enrollment.cs" />
         <Compile Include="Entities\Operational\Graduation.cs" />
+        <Compile Include="Entities\Operational\Lecturer.cs" />
         <Compile Include="Entities\Operational\Module.cs" />
         <Compile Include="Entities\Operational\ModuleRun.cs" />
         <Compile Include="Entities\Operational\Result.cs" />
