@@ -9,7 +9,6 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
         {
             Username = "Admin",
             Password = "Admin",
-            
         };
 
         public static User Teacher { get; } = new User

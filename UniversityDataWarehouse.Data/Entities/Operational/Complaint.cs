@@ -6,5 +6,8 @@ namespace UniversityDataWarehouse.Data.Entities.Operational
 
         public int CourseId { get; set; }
         public virtual Course Course { get; set; }
+
+        public int AcademicYearId { get; set; }
+        public virtual AcademicYear AcademicYear { get; set; }
     }
 }
