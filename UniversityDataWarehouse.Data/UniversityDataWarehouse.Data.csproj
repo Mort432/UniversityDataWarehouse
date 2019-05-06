@@ -57,13 +57,25 @@
     <ItemGroup>
         <Compile Include="Contexts\OracleContext.cs" />
         <Compile Include="Entities\Dimensional\AcademicYearDim.cs" />
+        <Compile Include="Entities\Dimensional\AssignmentFact.cs" />
         <Compile Include="Entities\Dimensional\CampusDim.cs" />
         <Compile Include="Entities\Dimensional\ClassificationDim.cs" />
+        <Compile Include="Entities\Dimensional\ComplaintFact.cs" />
         <Compile Include="Entities\Dimensional\CountryDim.cs" />
         <Compile Include="Entities\Dimensional\CourseDim.cs" />
+        <Compile Include="Entities\Dimensional\CourseFact.cs" />
+        <Compile Include="Entities\Dimensional\EnrollmentFact.cs" />
+        <Compile Include="Entities\Dimensional\FactBase.cs" />
         <Compile Include="Entities\Dimensional\GenderDim.cs" />
+        <Compile Include="Entities\Dimensional\GenderFact.cs" />
+        <Compile Include="Entities\Dimensional\GraduationFact.cs" />
+        <Compile Include="Entities\Dimensional\IFact.cs" />
         <Compile Include="Entities\Dimensional\LecturerDim.cs" />
+        <Compile Include="Entities\Dimensional\LecturerFact.cs" />
         <Compile Include="Entities\Dimensional\ModuleDim.cs" />
+        <Compile Include="Entities\Dimensional\ModuleFact.cs" />
+        <Compile Include="Entities\Dimensional\ResultFact.cs" />
+        <Compile Include="Entities\Dimensional\StudentFact.cs" />
         <Compile Include="Entities\EntityBase.cs" />
         <Compile Include="Entities\IEntity.cs" />
         <Compile Include="Entities\Operational\Assignment.cs" />

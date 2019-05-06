@@ -11,5 +11,6 @@ namespace UniversityDataWarehouse.Data.Entities.Operational
 
         public virtual ICollection<Student> Students { get; set; }
         public virtual ICollection<CourseModule> CourseModules { get; set; }
+        public virtual ICollection<Complaint> Complaints { get; set; }
     }
 }

@@ -7,6 +7,8 @@ namespace UniversityDataWarehouse.Data.Entities.Operational
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
+        public string Gender { get; set; }
+
         public int CourseId { get; set; }
         public virtual Course Course { get; set; }
         
