@@ -73,5 +73,22 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
             CourseId = CourseSeed.GameDevelopmentCourse.Id,
             AcademicYearId = AcademicYearSeed.AcademicYear2019.Id
         };
+
+        public static Complaint[] ToArray()
+        {
+            return new[]
+            {
+                Complaint1,
+                Complaint2,
+                Complaint3,
+                Complaint4,
+                Complaint5,
+                Complaint6,
+                Complaint7,
+                Complaint8,
+                Complaint9,
+                Complaint10
+            };
+        }
     }
 }
