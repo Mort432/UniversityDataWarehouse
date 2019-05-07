@@ -105,6 +105,7 @@
         <Compile Include="Initializers\Seeds\ModuleRunSeed.cs" />
         <Compile Include="Initializers\Seeds\ModuleSeed.cs" />
         <Compile Include="Initializers\Seeds\PermissionSeed.cs" />
+        <Compile Include="Initializers\Seeds\ResultSeed.cs" />
         <Compile Include="Initializers\Seeds\StudentSeed.cs" />
         <Compile Include="Initializers\Seeds\UserSeed.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

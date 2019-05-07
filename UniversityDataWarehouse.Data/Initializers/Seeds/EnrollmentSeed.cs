@@ -194,7 +194,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
         public static Enrollment E31 { get; } = new Enrollment()
         {
             StudentId = StudentSeed.MaxMoisio.Id,
-            ModuleRunId = ModuleRunSeed.ShakespeareRun3.Id
+            ModuleRunId = ModuleRunSeed.MarloweRun3.Id
         };
         #endregion
         
@@ -207,7 +207,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
         public static Enrollment E33 { get; } = new Enrollment()
         {
             StudentId = StudentSeed.JoeKaufman.Id,
-            ModuleRunId = ModuleRunSeed.ShakespeareRun3.Id
+            ModuleRunId = ModuleRunSeed.MarloweRun3.Id
         };
         #endregion
         
@@ -220,7 +220,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
         public static Enrollment E35 { get; } = new Enrollment()
         {
             StudentId = StudentSeed.EveKennedy.Id,
-            ModuleRunId = ModuleRunSeed.ShakespeareRun2.Id
+            ModuleRunId = ModuleRunSeed.MarloweRun2.Id
         };
         #endregion
 
