@@ -123,5 +123,27 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
             Gender = "Female",
             CourseId = CourseSeed.EnglishLiteratureCourse.Id
         };
+
+        public static Student[] ToArray()
+        {
+            return new[]
+            {
+                ConnaghMuldoon,
+                ThomasClark,
+                LaibaKhawar,
+                GuyMorley,
+                EmiliaChapman,
+                JacobSmith,
+                YousefGood,
+                LandenPate,
+                NicoleRichards,
+                DianaRodriguez,
+                HalleHoffman,
+                TylerBrooks,
+                MaxMoisio,
+                JoeKaufman,
+                EveKennedy
+            };
+        }
     }
 }
