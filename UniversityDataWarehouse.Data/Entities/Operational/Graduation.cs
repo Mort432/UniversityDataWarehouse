@@ -2,6 +2,7 @@ namespace UniversityDataWarehouse.Data.Entities.Operational
 {
     public class Graduation : EntityBase
     {
+        public int YearId { get; set; }
         public AcademicYear Year { get; set; }
 
         public int UserId { get; set; }
