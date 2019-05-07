@@ -98,6 +98,7 @@
         <Compile Include="Initializers\Seeds\ComplaintSeed.cs" />
         <Compile Include="Initializers\Seeds\CourseModuleSeed.cs" />
         <Compile Include="Initializers\Seeds\CourseSeed.cs" />
+        <Compile Include="Initializers\Seeds\EnrollmentSeed.cs" />
         <Compile Include="Initializers\Seeds\LecturerSeed.cs" />
         <Compile Include="Initializers\Seeds\ModuleRunSeed.cs" />
         <Compile Include="Initializers\Seeds\ModuleSeed.cs" />
