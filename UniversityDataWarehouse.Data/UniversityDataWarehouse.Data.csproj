@@ -99,6 +99,7 @@
         <Compile Include="Initializers\Seeds\CourseSeed.cs" />
         <Compile Include="Initializers\Seeds\ModuleSeed.cs" />
         <Compile Include="Initializers\Seeds\PermissionSeed.cs" />
+        <Compile Include="Initializers\Seeds\StudentSeed.cs" />
         <Compile Include="Initializers\Seeds\UserSeed.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Initializers\OracleInitializer.cs" />
