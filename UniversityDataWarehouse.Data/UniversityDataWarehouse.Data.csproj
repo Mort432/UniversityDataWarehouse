@@ -94,6 +94,7 @@
         <Compile Include="Entities\Permission.cs" />
         <Compile Include="Entities\User.cs" />
         <Compile Include="Initializers\Seeds\AcademicYearSeed.cs" />
+        <Compile Include="Initializers\Seeds\AssignmentSeed.cs" />
         <Compile Include="Initializers\Seeds\CampusSeed.cs" />
         <Compile Include="Initializers\Seeds\ComplaintSeed.cs" />
         <Compile Include="Initializers\Seeds\CourseModuleSeed.cs" />
