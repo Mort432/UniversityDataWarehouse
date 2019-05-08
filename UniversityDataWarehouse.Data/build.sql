@@ -456,37 +456,11 @@ create table "S1509508"."LecturerDims"
 
 -- SEQUENCES
 
-create sequence "S1509508"."SQ_AcademicYearDims";
-create sequence "S1509508"."SQ_ModuleDims";
-create sequence "S1509508"."SQ_CampusDims";
+
 create sequence "S1509508"."SQ_ClassificationDims";
-create sequence "S1509508"."SQ_CourseDims";
-create sequence "S1509508"."SQ_CountryDims";
 create sequence "S1509508"."SQ_GenderDims";
-create sequence "S1509508"."SQ_LecturerDims";
 
 -- TRIGGERS
-
-create or replace trigger "S1509508"."TR_AcademicYearDims"
-  before insert on "S1509508"."AcademicYearDims"
-  for each row
-begin
-  select "S1509508"."SQ_AcademicYearDims".nextval into :new."Id" from dual;
-end;
-
-create or replace trigger "S1509508"."TR_ModuleDims"
-  before insert on "S1509508"."ModuleDims"
-  for each row
-begin
-  select "S1509508"."SQ_ModuleDims".nextval into :new."Id" from dual;
-end;
-
-create or replace trigger "S1509508"."TR_CampusDims"
-  before insert on "S1509508"."CampusDims"
-  for each row
-begin
-  select "S1509508"."SQ_CampusDims".nextval into :new."Id" from dual;
-end;
 
 create or replace trigger "S1509508"."TR_ClassificationDims"
   before insert on "S1509508"."ClassificationDims"
@@ -495,32 +469,11 @@ begin
   select "S1509508"."SQ_ClassificationDims".nextval into :new."Id" from dual;
 end;
 
-create or replace trigger "S1509508"."TR_CourseDims"
-  before insert on "S1509508"."CourseDims"
-  for each row
-begin
-  select "S1509508"."SQ_CourseDims".nextval into :new."Id" from dual;
-end;
-
-create or replace trigger "S1509508"."TR_CountryDims"
-  before insert on "S1509508"."CountryDims"
-  for each row
-begin
-  select "S1509508"."SQ_CountryDims".nextval into :new."Id" from dual;
-end;
-
 create or replace trigger "S1509508"."TR_GenderDims"
   before insert on "S1509508"."GenderDims"
   for each row
 begin
   select "S1509508"."SQ_GenderDims".nextval into :new."Id" from dual;
-end;
-
-create or replace trigger "S1509508"."TR_LecturerDims"
-  before insert on "S1509508"."LecturerDims"
-  for each row
-begin
-  select "S1509508"."SQ_LecturerDims".nextval into :new."Id" from dual;
 end;
 
 ---- EF BOILERPLATE ----
