@@ -350,25 +350,25 @@ create table "S1509508"."StudentFacts"
 
 -- INDEXES
 
-create index "S1509508"."IX_AssignmentFacts__1448872138" on "S1509508"."AssignmentFacts" ("AcademicYearDimId") LOCAL;
-create index "S1509508"."IX_AssignmentFacts_ModuleDimId" on "S1509508"."AssignmentFacts" ("ModuleDimId") LOCAL;
-create index "S1509508"."IX_ComplaintFacts_A_1386423654" on "S1509508"."ComplaintFacts" ("AcademicYearDimId") LOCAL;
-create index "S1509508"."IX_ComplaintFacts_CourseDimId" on "S1509508"."ComplaintFacts" ("CourseDimId") LOCAL;
-create index "S1509508"."IX_EnrollmentFacts_A_177810579" on "S1509508"."EnrollmentFacts" ("AcademicYearDimId") LOCAL;
-create index "S1509508"."IX_EnrollmentFacts_ModuleDimId" on "S1509508"."EnrollmentFacts" ("ModuleDimId") LOCAL;
-create index "S1509508"."IX_GenderFacts_Acad_1333264266" on "S1509508"."GenderFacts" ("AcademicYearDimId") LOCAL;
-create index "S1509508"."IX_GenderFacts_GenderDimId" on "S1509508"."GenderFacts" ("GenderDimId") LOCAL;
-create index "S1509508"."IX_GraduationFacts_A_465991385" on "S1509508"."GraduationFacts" ("AcademicYearDimId") LOCAL;
-create index "S1509508"."IX_GraduationFacts_CourseDimId" on "S1509508"."GraduationFacts" ("CourseDimId") LOCAL;
-create index "S1509508"."IX_LecturerFacts_Aca_925118121" on "S1509508"."LecturerFacts" ("AcademicYearDimId") LOCAL;
-create index "S1509508"."IX_LecturerFacts_LecturerDimId" on "S1509508"."LecturerFacts" ("LecturerDimId") LOCAL;
-create index "S1509508"."IX_ModuleFacts_Acad_2060256043" on "S1509508"."ModuleFacts" ("AcademicYearDimId") LOCAL;
-create index "S1509508"."IX_ModuleFacts_CourseDimId" on "S1509508"."ModuleFacts" ("CourseDimId") LOCAL;
-create index "S1509508"."IX_ResultFacts_Acad_1508787010" on "S1509508"."ResultFacts" ("AcademicYearDimId") LOCAL;
-create index "S1509508"."IX_ResultFacts_ModuleDimId" on "S1509508"."ResultFacts" ("ModuleDimId") LOCAL;
-create index "S1509508"."IX_ResultFacts_Clas_1227287608" on "S1509508"."ResultFacts" ("ClassificationDimId") LOCAL;
-create index "S1509508"."IX_StudentFacts_Aca_1313936632" on "S1509508"."StudentFacts" ("AcademicYearDimId") LOCAL;
-create index "S1509508"."IX_StudentFacts_CountryDimId" on "S1509508"."StudentFacts" ("CountryDimId") LOCAL;
+create bitmap index "S1509508"."IX_AssignmentFacts__1448872138" on "S1509508"."AssignmentFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_AssignmentFacts_ModuleDimId" on "S1509508"."AssignmentFacts" ("ModuleDimId") LOCAL;
+create bitmap index "S1509508"."IX_ComplaintFacts_A_1386423654" on "S1509508"."ComplaintFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_ComplaintFacts_CourseDimId" on "S1509508"."ComplaintFacts" ("CourseDimId") LOCAL;
+create bitmap index "S1509508"."IX_EnrollmentFacts_A_177810579" on "S1509508"."EnrollmentFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_EnrollmentFacts_ModuleDimId" on "S1509508"."EnrollmentFacts" ("ModuleDimId") LOCAL;
+create bitmap index "S1509508"."IX_GenderFacts_Acad_1333264266" on "S1509508"."GenderFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_GenderFacts_GenderDimId" on "S1509508"."GenderFacts" ("GenderDimId") LOCAL;
+create bitmap index "S1509508"."IX_GraduationFacts_A_465991385" on "S1509508"."GraduationFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_GraduationFacts_CourseDimId" on "S1509508"."GraduationFacts" ("CourseDimId") LOCAL;
+create bitmap index "S1509508"."IX_LecturerFacts_Aca_925118121" on "S1509508"."LecturerFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_LecturerFacts_LecturerDimId" on "S1509508"."LecturerFacts" ("LecturerDimId") LOCAL;
+create bitmap index "S1509508"."IX_ModuleFacts_Acad_2060256043" on "S1509508"."ModuleFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_ModuleFacts_CourseDimId" on "S1509508"."ModuleFacts" ("CourseDimId") LOCAL;
+create bitmap index "S1509508"."IX_ResultFacts_Acad_1508787010" on "S1509508"."ResultFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_ResultFacts_ModuleDimId" on "S1509508"."ResultFacts" ("ModuleDimId") LOCAL;
+create bitmap index "S1509508"."IX_ResultFacts_Clas_1227287608" on "S1509508"."ResultFacts" ("ClassificationDimId") LOCAL;
+create bitmap index "S1509508"."IX_StudentFacts_Aca_1313936632" on "S1509508"."StudentFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_StudentFacts_CountryDimId" on "S1509508"."StudentFacts" ("CountryDimId") LOCAL;
 
 -- FOREIGN KEYS
 
