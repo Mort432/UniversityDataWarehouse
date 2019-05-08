@@ -13,7 +13,7 @@ namespace UniversityDataWarehouse.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201905081741148_InitialCreate"; }
+            get { return "201905081804039_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

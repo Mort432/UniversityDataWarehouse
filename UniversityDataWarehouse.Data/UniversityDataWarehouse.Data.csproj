@@ -110,21 +110,20 @@
         <Compile Include="Initializers\Seeds\ResultSeed.cs" />
         <Compile Include="Initializers\Seeds\StudentSeed.cs" />
         <Compile Include="Initializers\Seeds\UserSeed.cs" />
-        <Compile Include="Migrations\201905081741148_InitialCreate.cs" />
-        <Compile Include="Migrations\201905081741148_InitialCreate.Designer.cs">
-          <DependentUpon>201905081741148_InitialCreate.cs</DependentUpon>
+        <Compile Include="Migrations\201905081804039_InitialCreate.cs" />
+        <Compile Include="Migrations\201905081804039_InitialCreate.Designer.cs">
+          <DependentUpon>201905081804039_InitialCreate.cs</DependentUpon>
         </Compile>
         <Compile Include="Migrations\Configuration.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Initializers\OracleInitializer.cs" />
     </ItemGroup>
     <ItemGroup>
-      <None Include="App.config" />
       <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
-      <EmbeddedResource Include="Migrations\201905081741148_InitialCreate.resx">
-        <DependentUpon>201905081741148_InitialCreate.cs</DependentUpon>
+      <EmbeddedResource Include="Migrations\201905081804039_InitialCreate.resx">
+        <DependentUpon>201905081804039_InitialCreate.cs</DependentUpon>
       </EmbeddedResource>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

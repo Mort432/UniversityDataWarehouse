@@ -11,8 +11,8 @@
                 "S1509508.AcademicYearDims",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
-                        Year = c.Int(nullable: false),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
+                        Year = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -20,8 +20,8 @@
                 "S1509508.AcademicYears",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
-                        Year = c.Int(nullable: false),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
+                        Year = c.Decimal(nullable: false, precision: 10, scale: 0),
                         AcademicYearStart = c.DateTime(nullable: false),
                         AcademicYearEnd = c.DateTime(nullable: false),
                     })
@@ -31,9 +31,9 @@
                 "S1509508.AssignmentFacts",
                 c => new
                     {
-                        AcademicYearDimId = c.Int(nullable: false),
-                        ModuleDimId = c.Int(nullable: false),
-                        Value = c.Int(nullable: false),
+                        AcademicYearDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ModuleDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        Value = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => new { t.AcademicYearDimId, t.ModuleDimId })
                 .ForeignKey("S1509508.AcademicYearDims", t => t.AcademicYearDimId, cascadeDelete: true)
@@ -45,7 +45,7 @@
                 "S1509508.ModuleDims",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         Name = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id);
@@ -54,12 +54,12 @@
                 "S1509508.Assignments",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         Title = c.String(maxLength: 2000),
-                        ModuleRunId = c.Int(nullable: false),
-                        ModuleRun_AcademicYearId = c.Int(),
-                        ModuleRun_ModuleId = c.Int(),
-                        ModuleRun_LecturerId = c.Int(),
+                        ModuleRunId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ModuleRun_AcademicYearId = c.Decimal(precision: 10, scale: 0),
+                        ModuleRun_ModuleId = c.Decimal(precision: 10, scale: 0),
+                        ModuleRun_LecturerId = c.Decimal(precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("S1509508.ModuleRuns", t => new { t.ModuleRun_AcademicYearId, t.ModuleRun_ModuleId, t.ModuleRun_LecturerId })
@@ -69,10 +69,10 @@
                 "S1509508.ModuleRuns",
                 c => new
                     {
-                        AcademicYearId = c.Int(nullable: false),
-                        ModuleId = c.Int(nullable: false),
-                        LecturerId = c.Int(nullable: false),
-                        Id = c.Int(nullable: false),
+                        AcademicYearId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ModuleId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        LecturerId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => new { t.AcademicYearId, t.ModuleId, t.LecturerId })
                 .ForeignKey("S1509508.Modules", t => t.ModuleId, cascadeDelete: true)
@@ -86,11 +86,11 @@
                 "S1509508.Enrollments",
                 c => new
                     {
-                        StudentId = c.Int(nullable: false),
-                        ModuleRunId = c.Int(nullable: false),
-                        ModuleRun_AcademicYearId = c.Int(),
-                        ModuleRun_ModuleId = c.Int(),
-                        ModuleRun_LecturerId = c.Int(),
+                        StudentId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ModuleRunId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ModuleRun_AcademicYearId = c.Decimal(precision: 10, scale: 0),
+                        ModuleRun_ModuleId = c.Decimal(precision: 10, scale: 0),
+                        ModuleRun_LecturerId = c.Decimal(precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => new { t.StudentId, t.ModuleRunId })
                 .ForeignKey("S1509508.ModuleRuns", t => new { t.ModuleRun_AcademicYearId, t.ModuleRun_ModuleId, t.ModuleRun_LecturerId })
@@ -102,12 +102,12 @@
                 "S1509508.Students",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         FirstName = c.String(maxLength: 2000),
                         LastName = c.String(maxLength: 2000),
                         Gender = c.String(maxLength: 2000),
-                        CountryId = c.Int(nullable: false),
-                        CourseId = c.Int(nullable: false),
+                        CountryId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        CourseId = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("S1509508.Countries", t => t.CountryId, cascadeDelete: true)
@@ -119,7 +119,7 @@
                 "S1509508.Countries",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         Name = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id);
@@ -128,9 +128,9 @@
                 "S1509508.Courses",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         Name = c.String(maxLength: 2000),
-                        CampusId = c.Int(nullable: false),
+                        CampusId = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("S1509508.Campus", t => t.CampusId, cascadeDelete: true)
@@ -140,7 +140,7 @@
                 "S1509508.Campus",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         CampusName = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id);
@@ -149,10 +149,10 @@
                 "S1509508.Complaints",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         ComplaintText = c.String(maxLength: 2000),
-                        CourseId = c.Int(nullable: false),
-                        AcademicYearId = c.Int(nullable: false),
+                        CourseId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        AcademicYearId = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("S1509508.AcademicYears", t => t.AcademicYearId, cascadeDelete: true)
@@ -164,8 +164,8 @@
                 "S1509508.CourseModules",
                 c => new
                     {
-                        CourseId = c.Int(nullable: false),
-                        ModuleId = c.Int(nullable: false),
+                        CourseId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ModuleId = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => new { t.CourseId, t.ModuleId })
                 .ForeignKey("S1509508.Courses", t => t.CourseId, cascadeDelete: true)
@@ -177,7 +177,7 @@
                 "S1509508.Modules",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         Name = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id);
@@ -186,7 +186,7 @@
                 "S1509508.Lecturers",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         FirstName = c.String(maxLength: 2000),
                         LastName = c.String(maxLength: 2000),
                     })
@@ -196,10 +196,10 @@
                 "S1509508.Results",
                 c => new
                     {
-                        StudentId = c.Int(nullable: false),
-                        AssignmentId = c.Int(nullable: false),
-                        Grade = c.Int(nullable: false),
-                        Id = c.Int(nullable: false),
+                        StudentId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        AssignmentId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        Grade = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => new { t.StudentId, t.AssignmentId })
                 .ForeignKey("S1509508.Assignments", t => t.AssignmentId, cascadeDelete: true)
@@ -211,7 +211,7 @@
                 "S1509508.CampusDims",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         Name = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id);
@@ -220,7 +220,7 @@
                 "S1509508.ClassificationDims",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         Classification = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id);
@@ -229,9 +229,9 @@
                 "S1509508.ComplaintFacts",
                 c => new
                     {
-                        AcademicYearDimId = c.Int(nullable: false),
-                        CourseDimId = c.Int(nullable: false),
-                        Value = c.Int(nullable: false),
+                        AcademicYearDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        CourseDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        Value = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => new { t.AcademicYearDimId, t.CourseDimId })
                 .ForeignKey("S1509508.AcademicYearDims", t => t.AcademicYearDimId, cascadeDelete: true)
@@ -243,7 +243,7 @@
                 "S1509508.CourseDims",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         Name = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id);
@@ -252,7 +252,7 @@
                 "S1509508.CountryDims",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         Name = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id);
@@ -261,9 +261,9 @@
                 "S1509508.EnrollmentFacts",
                 c => new
                     {
-                        AcademicYearDimId = c.Int(nullable: false),
-                        ModuleDimId = c.Int(nullable: false),
-                        Value = c.Int(nullable: false),
+                        AcademicYearDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ModuleDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        Value = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => new { t.AcademicYearDimId, t.ModuleDimId })
                 .ForeignKey("S1509508.AcademicYearDims", t => t.AcademicYearDimId, cascadeDelete: true)
@@ -275,7 +275,7 @@
                 "S1509508.GenderDims",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         Gender = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id);
@@ -284,9 +284,9 @@
                 "S1509508.GenderFacts",
                 c => new
                     {
-                        AcademicYearDimId = c.Int(nullable: false),
-                        GenderDimId = c.Int(nullable: false),
-                        Value = c.Int(nullable: false),
+                        AcademicYearDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        GenderDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        Value = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => new { t.AcademicYearDimId, t.GenderDimId })
                 .ForeignKey("S1509508.AcademicYearDims", t => t.AcademicYearDimId, cascadeDelete: true)
@@ -298,9 +298,9 @@
                 "S1509508.GraduationFacts",
                 c => new
                     {
-                        AcademicYearDimId = c.Int(nullable: false),
-                        CourseDimId = c.Int(nullable: false),
-                        Value = c.Int(nullable: false),
+                        AcademicYearDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        CourseDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        Value = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => new { t.AcademicYearDimId, t.CourseDimId })
                 .ForeignKey("S1509508.AcademicYearDims", t => t.AcademicYearDimId, cascadeDelete: true)
@@ -312,10 +312,10 @@
                 "S1509508.Graduations",
                 c => new
                     {
-                        YearId = c.Int(nullable: false),
-                        UserId = c.Int(nullable: false),
-                        CourseId = c.Int(nullable: false),
-                        Id = c.Int(nullable: false),
+                        YearId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        UserId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        CourseId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => new { t.YearId, t.UserId, t.CourseId })
                 .ForeignKey("S1509508.Courses", t => t.CourseId, cascadeDelete: true)
@@ -329,7 +329,7 @@
                 "S1509508.Users",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         Username = c.String(maxLength: 2000),
                         Password = c.String(maxLength: 2000),
                     })
@@ -339,8 +339,8 @@
                 "S1509508.Permissions",
                 c => new
                     {
-                        UserId = c.Int(nullable: false),
-                        PermissionType = c.Int(nullable: false),
+                        UserId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        PermissionType = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => new { t.UserId, t.PermissionType })
                 .ForeignKey("S1509508.Users", t => t.UserId, cascadeDelete: true)
@@ -350,7 +350,7 @@
                 "S1509508.LecturerDims",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         FirstName = c.String(maxLength: 2000),
                         LastName = c.String(maxLength: 2000),
                     })
@@ -360,9 +360,9 @@
                 "S1509508.LecturerFacts",
                 c => new
                     {
-                        AcademicYearDimId = c.Int(nullable: false),
-                        LecturerDimId = c.Int(nullable: false),
-                        Value = c.Int(nullable: false),
+                        AcademicYearDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        LecturerDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        Value = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => new { t.AcademicYearDimId, t.LecturerDimId })
                 .ForeignKey("S1509508.AcademicYearDims", t => t.AcademicYearDimId, cascadeDelete: true)
@@ -374,9 +374,9 @@
                 "S1509508.ModuleFacts",
                 c => new
                     {
-                        AcademicYearDimId = c.Int(nullable: false),
-                        CourseDimId = c.Int(nullable: false),
-                        Value = c.Int(nullable: false),
+                        AcademicYearDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        CourseDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        Value = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => new { t.AcademicYearDimId, t.CourseDimId })
                 .ForeignKey("S1509508.AcademicYearDims", t => t.AcademicYearDimId, cascadeDelete: true)
@@ -388,10 +388,10 @@
                 "S1509508.ResultFacts",
                 c => new
                     {
-                        AcademicYearDimId = c.Int(nullable: false),
-                        ModuleDimId = c.Int(nullable: false),
-                        ClassificationDimId = c.Int(nullable: false),
-                        Value = c.Int(nullable: false),
+                        AcademicYearDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ModuleDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        ClassificationDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        Value = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => new { t.AcademicYearDimId, t.ModuleDimId, t.ClassificationDimId })
                 .ForeignKey("S1509508.AcademicYearDims", t => t.AcademicYearDimId, cascadeDelete: true)
@@ -405,9 +405,9 @@
                 "S1509508.StudentFacts",
                 c => new
                     {
-                        AcademicYearDimId = c.Int(nullable: false),
-                        CountryDimId = c.Int(nullable: false),
-                        Value = c.Int(nullable: false),
+                        AcademicYearDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        CountryDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        Value = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => new { t.AcademicYearDimId, t.CountryDimId })
                 .ForeignKey("S1509508.AcademicYearDims", t => t.AcademicYearDimId, cascadeDelete: true)
