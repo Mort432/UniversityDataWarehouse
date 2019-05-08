@@ -9,6 +9,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
             FirstName = "Connagh",
             LastName = "Muldoon",
             Gender = "Male",
+            CountryId = CountrySeed.UnitedKingdom.Id,
             CourseId = CourseSeed.ComputingCourse.Id
         };
         
@@ -17,6 +18,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
             FirstName = "Thomas",
             LastName = "Clark",
             Gender = "Male",
+            CountryId = CountrySeed.UnitedKingdom.Id,
             CourseId = CourseSeed.ComputingCourse.Id
         };
         
@@ -25,6 +27,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
             FirstName = "Laiba",
             LastName = "Khawar",
             Gender = "Female",
+            CountryId = CountrySeed.Pakistan.Id,
             CourseId = CourseSeed.ComputingCourse.Id
         };
         
@@ -33,6 +36,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
             FirstName = "Guy",
             LastName = "Morley",
             Gender = "Male",
+            CountryId = CountrySeed.UnitedKingdom.Id,
             CourseId = CourseSeed.ForensicComputingCourse.Id
         };
         
@@ -41,6 +45,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
             FirstName = "Emilia",
             LastName = "Chapman",
             Gender = "Female",
+            CountryId = CountrySeed.France.Id,
             CourseId = CourseSeed.ForensicComputingCourse.Id
         };
         
@@ -49,6 +54,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
             FirstName = "Jacob",
             LastName = "Smith",
             Gender = "Male",
+            CountryId = CountrySeed.France.Id,
             CourseId = CourseSeed.GameDevelopmentCourse.Id
         };
         
@@ -57,6 +63,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
             FirstName = "Yousef",
             LastName = "Good",
             Gender = "Male",
+            CountryId = CountrySeed.UnitedKingdom.Id,
             CourseId = CourseSeed.GameDevelopmentCourse.Id
         };
         
@@ -65,6 +72,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
             FirstName = "Landen",
             LastName = "Pate",
             Gender = "Male",
+            CountryId = CountrySeed.UnitedStates.Id,
             CourseId = CourseSeed.PhysicalTrainingCourse.Id
         };
         
@@ -73,6 +81,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
             FirstName = "Nicole",
             LastName = "Richards",
             Gender = "Female",
+            CountryId = CountrySeed.UnitedKingdom.Id,
             CourseId = CourseSeed.PhysicalTrainingCourse.Id
         };
         
@@ -81,6 +90,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
             FirstName = "Diana",
             LastName = "Rodriguez",
             Gender = "Female",
+            CountryId = CountrySeed.Pakistan.Id,
             CourseId = CourseSeed.PhysicalTrainingCourse.Id
         };
         
@@ -89,6 +99,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
             FirstName = "Halle",
             LastName = "Hoffman",
             Gender = "Female",
+            CountryId = CountrySeed.France.Id,
             CourseId = CourseSeed.SportsScienceCourse.Id
         };
         
@@ -97,6 +108,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
             FirstName = "Tyler",
             LastName = "Brooks",
             Gender = "Male",
+            CountryId = CountrySeed.UnitedKingdom.Id,
             CourseId = CourseSeed.SportsScienceCourse.Id
         };
         
@@ -105,6 +117,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
             FirstName = "Max",
             LastName = "Moisio",
             Gender = "Male",
+            CountryId = CountrySeed.UnitedKingdom.Id,
             CourseId = CourseSeed.EnglishLiteratureCourse.Id
         };
         
@@ -113,6 +126,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
             FirstName = "Joe",
             LastName = "Kaufman",
             Gender = "Male",
+            CountryId = CountrySeed.UnitedStates.Id,
             CourseId = CourseSeed.EnglishLiteratureCourse.Id
         };
         
@@ -121,6 +135,7 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
             FirstName = "Eve",
             LastName = "Kennedy",
             Gender = "Female",
+            CountryId = CountrySeed.UnitedKingdom.Id,
             CourseId = CourseSeed.EnglishLiteratureCourse.Id
         };
 

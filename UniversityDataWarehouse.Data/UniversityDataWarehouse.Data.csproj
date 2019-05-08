@@ -81,6 +81,7 @@
         <Compile Include="Entities\Operational\Assignment.cs" />
         <Compile Include="Entities\Operational\Campus.cs" />
         <Compile Include="Entities\Operational\Complaint.cs" />
+        <Compile Include="Entities\Operational\Country.cs" />
         <Compile Include="Entities\Operational\Course.cs" />
         <Compile Include="Entities\Operational\CourseModule.cs" />
         <Compile Include="Entities\Operational\Enrollment.cs" />
@@ -97,6 +98,7 @@
         <Compile Include="Initializers\Seeds\AssignmentSeed.cs" />
         <Compile Include="Initializers\Seeds\CampusSeed.cs" />
         <Compile Include="Initializers\Seeds\ComplaintSeed.cs" />
+        <Compile Include="Initializers\Seeds\CountrySeed.cs" />
         <Compile Include="Initializers\Seeds\CourseModuleSeed.cs" />
         <Compile Include="Initializers\Seeds\CourseSeed.cs" />
         <Compile Include="Initializers\Seeds\EnrollmentSeed.cs" />
