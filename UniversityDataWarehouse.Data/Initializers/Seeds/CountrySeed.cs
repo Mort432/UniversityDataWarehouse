@@ -24,5 +24,16 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
         {
             Name = "Pakistan"
         };
+
+        public static Country[] ToArray()
+        {
+            return new[]
+            {
+                UnitedKingdom,
+                UnitedStates,
+                France,
+                Pakistan
+            };
+        }
     }
 }
