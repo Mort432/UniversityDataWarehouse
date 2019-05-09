@@ -182,19 +182,19 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
         public static ModuleRun TrainingFormRun1 { get; } = new ModuleRun()
         {
             AcademicYearId = AcademicYearSeed.AcademicYear2015.Id,
-            ModuleId = ModuleSeed.RespiratoryHealthModule.Id,
+            ModuleId = ModuleSeed.TrainingFormModule.Id,
             LecturerId = LecturerSeed.SeanFoley.Id
         };
         public static ModuleRun TrainingFormRun2 { get; } = new ModuleRun()
         {
             AcademicYearId = AcademicYearSeed.AcademicYear2018.Id,
-            ModuleId = ModuleSeed.RespiratoryHealthModule.Id,
+            ModuleId = ModuleSeed.TrainingFormModule.Id,
             LecturerId = LecturerSeed.SeanFoley.Id
         };
         public static ModuleRun TrainingFormRun3 { get; } = new ModuleRun()
         {
             AcademicYearId = AcademicYearSeed.AcademicYear2019.Id,
-            ModuleId = ModuleSeed.RespiratoryHealthModule.Id,
+            ModuleId = ModuleSeed.TrainingFormModule.Id,
             LecturerId = LecturerSeed.SeanFoley.Id
         };
         #endregion
