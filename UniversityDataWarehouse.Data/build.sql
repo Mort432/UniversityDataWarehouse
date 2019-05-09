@@ -141,25 +141,25 @@ create table "S1509508"."Permissions"
 
 -- INDEXES
 
-create index "S1509508"."IX_Assignments_Modu_2023938582" on "S1509508"."Assignments" ("ModuleRun_AcademicYearId", "ModuleRun_ModuleId", "ModuleRun_LecturerId") LOCAL;
-create index "S1509508"."IX_ModuleRuns_ModuleId" on "S1509508"."ModuleRuns" ("ModuleId") LOCAL;
-create index "S1509508"."IX_ModuleRuns_LecturerId" on "S1509508"."ModuleRuns" ("LecturerId") LOCAL;
-create index "S1509508"."IX_ModuleRuns_Id" on "S1509508"."ModuleRuns" ("Id") LOCAL;
-create index "S1509508"."IX_Enrollments_StudentId" on "S1509508"."Enrollments" ("StudentId") LOCAL;
-create index "S1509508"."IX_Enrollments_Modu_1648838737" on "S1509508"."Enrollments" ("ModuleRun_AcademicYearId", "ModuleRun_ModuleId", "ModuleRun_LecturerId") LOCAL;
-create index "S1509508"."IX_Students_CountryId" on "S1509508"."Students" ("CountryId") LOCAL;
-create index "S1509508"."IX_Students_CourseId" on "S1509508"."Students" ("CourseId") LOCAL;
-create index "S1509508"."IX_Courses_CampusId" on "S1509508"."Courses" ("CampusId") LOCAL;
-create index "S1509508"."IX_Complaints_CourseId" on "S1509508"."Complaints" ("CourseId") LOCAL;
-create index "S1509508"."IX_Complaints_AcademicYearId" on "S1509508"."Complaints" ("AcademicYearId") LOCAL;
-create index "S1509508"."IX_CourseModules_CourseId" on "S1509508"."CourseModules" ("CourseId") LOCAL;
-create index "S1509508"."IX_CourseModules_ModuleId" on "S1509508"."CourseModules" ("ModuleId") LOCAL;
-create index "S1509508"."IX_Results_StudentId" on "S1509508"."Results" ("StudentId") LOCAL;
-create index "S1509508"."IX_Results_AssignmentId" on "S1509508"."Results" ("AssignmentId") LOCAL;
-create index "S1509508"."IX_Graduations_YearId" on "S1509508"."Graduations" ("YearId") LOCAL;
-create index "S1509508"."IX_Graduations_UserId" on "S1509508"."Graduations" ("UserId") LOCAL;
-create index "S1509508"."IX_Graduations_CourseId" on "S1509508"."Graduations" ("CourseId") LOCAL;
-create index "S1509508"."IX_Permissions_UserId" on "S1509508"."Permissions" ("UserId") LOCAL;
+create index "S1509508"."IX_Assignments_Modu_2023938582" on "S1509508"."Assignments" ("ModuleRun_AcademicYearId", "ModuleRun_ModuleId", "ModuleRun_LecturerId");
+create index "S1509508"."IX_ModuleRuns_ModuleId" on "S1509508"."ModuleRuns" ("ModuleId");
+create index "S1509508"."IX_ModuleRuns_LecturerId" on "S1509508"."ModuleRuns" ("LecturerId");
+create index "S1509508"."IX_ModuleRuns_Id" on "S1509508"."ModuleRuns" ("Id");
+create index "S1509508"."IX_Enrollments_StudentId" on "S1509508"."Enrollments" ("StudentId");
+create index "S1509508"."IX_Enrollments_Modu_1648838737" on "S1509508"."Enrollments" ("ModuleRun_AcademicYearId", "ModuleRun_ModuleId", "ModuleRun_LecturerId");
+create index "S1509508"."IX_Students_CountryId" on "S1509508"."Students" ("CountryId");
+create index "S1509508"."IX_Students_CourseId" on "S1509508"."Students" ("CourseId");
+create index "S1509508"."IX_Courses_CampusId" on "S1509508"."Courses" ("CampusId");
+create index "S1509508"."IX_Complaints_CourseId" on "S1509508"."Complaints" ("CourseId");
+create index "S1509508"."IX_Complaints_AcademicYearId" on "S1509508"."Complaints" ("AcademicYearId");
+create index "S1509508"."IX_CourseModules_CourseId" on "S1509508"."CourseModules" ("CourseId");
+create index "S1509508"."IX_CourseModules_ModuleId" on "S1509508"."CourseModules" ("ModuleId");
+create index "S1509508"."IX_Results_StudentId" on "S1509508"."Results" ("StudentId");
+create index "S1509508"."IX_Results_AssignmentId" on "S1509508"."Results" ("AssignmentId");
+create index "S1509508"."IX_Graduations_YearId" on "S1509508"."Graduations" ("YearId");
+create index "S1509508"."IX_Graduations_UserId" on "S1509508"."Graduations" ("UserId");
+create index "S1509508"."IX_Graduations_CourseId" on "S1509508"."Graduations" ("CourseId");
+create index "S1509508"."IX_Permissions_UserId" on "S1509508"."Permissions" ("UserId");
 
 
 -- SEQUENCES
@@ -406,27 +406,7 @@ create bitmap index "S1509508"."IX_ResultFacts_Clas_1227287608" on "S1509508"."R
 create bitmap index "S1509508"."IX_StudentFacts_Aca_1313936632" on "S1509508"."StudentFacts" ("AcademicYearDimId") LOCAL;
 create bitmap index "S1509508"."IX_StudentFacts_CountryDimId" on "S1509508"."StudentFacts" ("CountryDimId") LOCAL;
 
--- FOREIGN KEYS
 
-alter table "S1509508"."AssignmentFacts" add constraint "FK_AssignmentFacts__1415296640" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
-alter table "S1509508"."AssignmentFacts" add constraint "FK_AssignmentFacts_ModuleDimId" foreign key ("ModuleDimId") references "S1509508"."ModuleDims" ("Id") on delete cascade;
-alter table "S1509508"."ComplaintFacts" add constraint "FK_ComplaintFacts_A_2016997436" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
-alter table "S1509508"."ComplaintFacts" add constraint "FK_ComplaintFacts_CourseDimId" foreign key ("CourseDimId") references "S1509508"."CourseDims" ("Id") on delete cascade;
-alter table "S1509508"."EnrollmentFacts" add constraint "FK_EnrollmentFacts_A_230107921" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
-alter table "S1509508"."EnrollmentFacts" add constraint "FK_EnrollmentFacts_ModuleDimId" foreign key ("ModuleDimId") references "S1509508"."ModuleDims" ("Id") on delete cascade;
-alter table "S1509508"."GenderFacts" add constraint "FK_GenderFacts_Acad_1247701348" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
-alter table "S1509508"."GenderFacts" add constraint "FK_GenderFacts_GenderDimId" foreign key ("GenderDimId") references "S1509508"."GenderDims" ("Id") on delete cascade;
-alter table "S1509508"."GraduationFacts" add constraint "FK_GraduationFacts__2010658651" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
-alter table "S1509508"."GraduationFacts" add constraint "FK_GraduationFacts_CourseDimId" foreign key ("CourseDimId") references "S1509508"."CourseDims" ("Id") on delete cascade;
-alter table "S1509508"."LecturerFacts" add constraint "FK_LecturerFacts_Ac_1232305295" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
-alter table "S1509508"."LecturerFacts" add constraint "FK_LecturerFacts_LecturerDimId" foreign key ("LecturerDimId") references "S1509508"."LecturerDims" ("Id") on delete cascade;
-alter table "S1509508"."ModuleFacts" add constraint "FK_ModuleFacts_Acade_145807659" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
-alter table "S1509508"."ModuleFacts" add constraint "FK_ModuleFacts_CourseDimId" foreign key ("CourseDimId") references "S1509508"."CourseDims" ("Id") on delete cascade;
-alter table "S1509508"."ResultFacts" add constraint "FK_ResultFacts_Acad_1610824376" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
-alter table "S1509508"."ResultFacts" add constraint "FK_ResultFacts_Clas_2054432834" foreign key ("ClassificationDimId") references "S1509508"."ClassificationDims" ("Id") on delete cascade;
-alter table "S1509508"."ResultFacts" add constraint "FK_ResultFacts_ModuleDimId" foreign key ("ModuleDimId") references "S1509508"."ModuleDims" ("Id") on delete cascade;
-alter table "S1509508"."StudentFacts" add constraint "FK_StudentFacts_Aca_1878105390" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
-alter table "S1509508"."StudentFacts" add constraint "FK_StudentFacts_CountryDimId" foreign key ("CountryDimId") references "S1509508"."CountryDims" ("Id") on delete cascade;
 
 
 ---- DIM_DB (DIMS) ----
@@ -511,6 +491,28 @@ create or replace trigger "S1509508"."TR_GenderDims"
 begin
   select "S1509508"."SQ_GenderDims".nextval into :new."Id" from dual;
 end;
+
+---- FACT/DIM FOREIGN KEYS ----
+
+alter table "S1509508"."AssignmentFacts" add constraint "FK_AssignmentFacts__1415296640" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
+alter table "S1509508"."AssignmentFacts" add constraint "FK_AssignmentFacts_ModuleDimId" foreign key ("ModuleDimId") references "S1509508"."ModuleDims" ("Id") on delete cascade;
+alter table "S1509508"."ComplaintFacts" add constraint "FK_ComplaintFacts_A_2016997436" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
+alter table "S1509508"."ComplaintFacts" add constraint "FK_ComplaintFacts_CourseDimId" foreign key ("CourseDimId") references "S1509508"."CourseDims" ("Id") on delete cascade;
+alter table "S1509508"."EnrollmentFacts" add constraint "FK_EnrollmentFacts_A_230107921" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
+alter table "S1509508"."EnrollmentFacts" add constraint "FK_EnrollmentFacts_ModuleDimId" foreign key ("ModuleDimId") references "S1509508"."ModuleDims" ("Id") on delete cascade;
+alter table "S1509508"."GenderFacts" add constraint "FK_GenderFacts_Acad_1247701348" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
+alter table "S1509508"."GenderFacts" add constraint "FK_GenderFacts_GenderDimId" foreign key ("GenderDimId") references "S1509508"."GenderDims" ("Id") on delete cascade;
+alter table "S1509508"."GraduationFacts" add constraint "FK_GraduationFacts__2010658651" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
+alter table "S1509508"."GraduationFacts" add constraint "FK_GraduationFacts_CourseDimId" foreign key ("CourseDimId") references "S1509508"."CourseDims" ("Id") on delete cascade;
+alter table "S1509508"."LecturerFacts" add constraint "FK_LecturerFacts_Ac_1232305295" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
+alter table "S1509508"."LecturerFacts" add constraint "FK_LecturerFacts_LecturerDimId" foreign key ("LecturerDimId") references "S1509508"."LecturerDims" ("Id") on delete cascade;
+alter table "S1509508"."ModuleFacts" add constraint "FK_ModuleFacts_Acade_145807659" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
+alter table "S1509508"."ModuleFacts" add constraint "FK_ModuleFacts_CourseDimId" foreign key ("CourseDimId") references "S1509508"."CourseDims" ("Id") on delete cascade;
+alter table "S1509508"."ResultFacts" add constraint "FK_ResultFacts_Acad_1610824376" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
+alter table "S1509508"."ResultFacts" add constraint "FK_ResultFacts_Clas_2054432834" foreign key ("ClassificationDimId") references "S1509508"."ClassificationDims" ("Id") on delete cascade;
+alter table "S1509508"."ResultFacts" add constraint "FK_ResultFacts_ModuleDimId" foreign key ("ModuleDimId") references "S1509508"."ModuleDims" ("Id") on delete cascade;
+alter table "S1509508"."StudentFacts" add constraint "FK_StudentFacts_Aca_1878105390" foreign key ("AcademicYearDimId") references "S1509508"."AcademicYearDims" ("Id") on delete cascade;
+alter table "S1509508"."StudentFacts" add constraint "FK_StudentFacts_CountryDimId" foreign key ("CountryDimId") references "S1509508"."CountryDims" ("Id") on delete cascade;
 
 ---- EF BOILERPLATE ----
 
