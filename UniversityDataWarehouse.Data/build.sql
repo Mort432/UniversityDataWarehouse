@@ -24,11 +24,11 @@ create table "S1509508"."Assignments"
 
 create table "S1509508"."ModuleRuns"
 (
+  "Id" number(10, 0) not null,
   "AcademicYearId" number(10, 0) not null,
   "ModuleId" number(10, 0) not null,
   "LecturerId" number(10, 0) not null,
-  "Id" number(10, 0) not null,
-  constraint "PK_ModuleRuns" primary key ("AcademicYearId", "ModuleId", "LecturerId")
+  constraint "PK_ModuleRuns" primary key ("Id")
 );
 
 create table "S1509508"."Enrollments"
@@ -116,11 +116,11 @@ create table "S1509508"."Results"
 
 create table "S1509508"."Graduations"
 (
-  "YearId" number(10, 0) not null,
-  "UserId" number(10, 0) not null,
-  "CourseId" number(10, 0) not null,
   "Id" number(10, 0) not null,
-  constraint "PK_Graduations" primary key ("YearId", "UserId", "CourseId")
+  "YearId" number(10, 0) not null,
+  "StudentId" number(10, 0) not null,
+  "CourseId" number(10, 0) not null,
+  constraint "PK_Graduations" primary key ("Id")
 );
 
 create table "S1509508"."Users"
@@ -141,12 +141,11 @@ create table "S1509508"."Permissions"
 
 -- INDEXES
 
-create index "S1509508"."IX_Assignments_Modu_2023938582" on "S1509508"."Assignments" ("ModuleRun_AcademicYearId", "ModuleRun_ModuleId", "ModuleRun_LecturerId");
+create index "S1509508"."IX_Assignments_Modu_2023938582" on "S1509508"."Assignments" ("ModuleRunId");
 create index "S1509508"."IX_ModuleRuns_ModuleId" on "S1509508"."ModuleRuns" ("ModuleId");
 create index "S1509508"."IX_ModuleRuns_LecturerId" on "S1509508"."ModuleRuns" ("LecturerId");
-create index "S1509508"."IX_ModuleRuns_Id" on "S1509508"."ModuleRuns" ("Id");
 create index "S1509508"."IX_Enrollments_StudentId" on "S1509508"."Enrollments" ("StudentId");
-create index "S1509508"."IX_Enrollments_Modu_1648838737" on "S1509508"."Enrollments" ("ModuleRun_AcademicYearId", "ModuleRun_ModuleId", "ModuleRun_LecturerId");
+create index "S1509508"."IX_Enrollments_Modu_1648838737" on "S1509508"."Enrollments" ("ModuleRunId");
 create index "S1509508"."IX_Students_CountryId" on "S1509508"."Students" ("CountryId");
 create index "S1509508"."IX_Students_CourseId" on "S1509508"."Students" ("CourseId");
 create index "S1509508"."IX_Courses_CampusId" on "S1509508"."Courses" ("CampusId");
@@ -157,7 +156,7 @@ create index "S1509508"."IX_CourseModules_ModuleId" on "S1509508"."CourseModules
 create index "S1509508"."IX_Results_StudentId" on "S1509508"."Results" ("StudentId");
 create index "S1509508"."IX_Results_AssignmentId" on "S1509508"."Results" ("AssignmentId");
 create index "S1509508"."IX_Graduations_YearId" on "S1509508"."Graduations" ("YearId");
-create index "S1509508"."IX_Graduations_UserId" on "S1509508"."Graduations" ("UserId");
+create index "S1509508"."IX_Graduations_StudentId" on "S1509508"."Graduations" ("StudentId");
 create index "S1509508"."IX_Graduations_CourseId" on "S1509508"."Graduations" ("CourseId");
 create index "S1509508"."IX_Permissions_UserId" on "S1509508"."Permissions" ("UserId");
 
@@ -172,8 +171,10 @@ create sequence "S1509508"."SQ_Courses";
 create sequence "S1509508"."SQ_Campus";
 create sequence "S1509508"."SQ_Complaints";
 create sequence "S1509508"."SQ_Modules";
+create sequence "S1509508"."SQ_ModuleRuns";
 create sequence "S1509508"."SQ_Lecturers";
 create sequence "S1509508"."SQ_Users";
+create sequence "S1509508"."SQ_Graduations";
 
 -- TRIGGERS
 
@@ -233,6 +234,13 @@ begin
   select "S1509508"."SQ_Modules".nextval into :new."Id" from dual;
 end;
 
+create or replace trigger "S1509508"."TR_ModuleRuns"
+  before insert on "S1509508"."ModuleRuns"
+  for each row
+begin
+  select "S1509508"."SQ_ModuleRuns".nextval into :new."Id" from dual;
+end;
+
 create or replace trigger "S1509508"."TR_Lecturers"
   before insert on "S1509508"."Lecturers"
   for each row
@@ -247,13 +255,20 @@ begin
   select "S1509508"."SQ_Users".nextval into :new."Id" from dual;
 end;
 
+create or replace trigger "S1509508"."TR_Graduations"
+  before insert on "S1509508"."Graduations"
+  for each row
+begin
+  select "S1509508"."SQ_Graduations".nextval into :new."Id" from dual;
+end;
+
 -- FOREIGN KEYS
 
-alter table "S1509508"."Assignments" add constraint "FK_Assignments_Modul_762698328" foreign key ("ModuleRun_AcademicYearId", "ModuleRun_ModuleId", "ModuleRun_LecturerId") references "S1509508"."ModuleRuns" ("AcademicYearId", "ModuleId", "LecturerId");
+alter table "S1509508"."Assignments" add constraint "FK_Assignments_Modul_762698328" foreign key ("ModuleRunId") references "S1509508"."ModuleRuns" ("Id");
 alter table "S1509508"."ModuleRuns" add constraint "FK_ModuleRuns_ModuleId" foreign key ("ModuleId") references "S1509508"."Modules" ("Id") on delete cascade;
 alter table "S1509508"."ModuleRuns" add constraint "FK_ModuleRuns_LecturerId" foreign key ("LecturerId") references "S1509508"."Lecturers" ("Id") on delete cascade;
-alter table "S1509508"."ModuleRuns" add constraint "FK_ModuleRuns_Id" foreign key ("Id") references "S1509508"."AcademicYears" ("Id") on delete cascade;
-alter table "S1509508"."Enrollments" add constraint "FK_Enrollments_Modul_888350027" foreign key ("ModuleRun_AcademicYearId", "ModuleRun_ModuleId", "ModuleRun_LecturerId") references "S1509508"."ModuleRuns" ("AcademicYearId", "ModuleId", "LecturerId");
+alter table "S1509508"."ModuleRuns" add constraint "FK_ModuleRuns_AcademicYearId" foreign key ("AcademicYearId") references "S1509508"."AcademicYears" ("Id") on delete cascade;
+alter table "S1509508"."Enrollments" add constraint "FK_Enrollments_Modul_888350027" foreign key ("ModuleRunId") references "S1509508"."ModuleRuns" ("Id");
 alter table "S1509508"."Enrollments" add constraint "FK_Enrollments_StudentId" foreign key ("StudentId") references "S1509508"."Students" ("Id") on delete cascade;
 alter table "S1509508"."Students" add constraint "FK_Students_CountryId" foreign key ("CountryId") references "S1509508"."Countries" ("Id") on delete cascade;
 alter table "S1509508"."Students" add constraint "FK_Students_CourseId" foreign key ("CourseId") references "S1509508"."Courses" ("Id") on delete cascade;
@@ -265,7 +280,7 @@ alter table "S1509508"."CourseModules" add constraint "FK_CourseModules_ModuleId
 alter table "S1509508"."Results" add constraint "FK_Results_AssignmentId" foreign key ("AssignmentId") references "S1509508"."Assignments" ("Id") on delete cascade;
 alter table "S1509508"."Results" add constraint "FK_Results_StudentId" foreign key ("StudentId") references "S1509508"."Students" ("Id") on delete cascade;
 alter table "S1509508"."Graduations" add constraint "FK_Graduations_CourseId" foreign key ("CourseId") references "S1509508"."Courses" ("Id") on delete cascade;
-alter table "S1509508"."Graduations" add constraint "FK_Graduations_UserId" foreign key ("UserId") references "S1509508"."Users" ("Id") on delete cascade;
+alter table "S1509508"."Graduations" add constraint "FK_Graduations_StudentId" foreign key ("StudentId") references "S1509508"."Students" ("Id") on delete cascade;
 alter table "S1509508"."Graduations" add constraint "FK_Graduations_YearId" foreign key ("YearId") references "S1509508"."AcademicYears" ("Id") on delete cascade;
 alter table "S1509508"."Permissions" add constraint "FK_Permissions_UserId" foreign key ("UserId") references "S1509508"."Users" ("Id") on delete cascade;
 
