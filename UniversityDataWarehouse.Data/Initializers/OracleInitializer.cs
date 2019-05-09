@@ -46,5 +46,10 @@ namespace UniversityDataWarehouse.Data.Initializers
             context.Complaints.AddOrUpdate(ComplaintSeed.ToArray());
             await context.SaveChangesAsync();
         }
+
+        public void AttemptSeed(OracleContext context)
+        {
+            Seed(context);
+        }
     }
 }

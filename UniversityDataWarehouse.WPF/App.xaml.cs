@@ -24,6 +24,7 @@ namespace UniversityDataWarehouse.WPF
             
             //Services
             builder.RegisterType<AuthService>().As<IAuthService>().SingleInstance();
+            builder.RegisterType<SeedService>().As<ISeedService>().SingleInstance();
 
             //View models
             builder.RegisterType<MainPageViewModel>().InstancePerDependency();
