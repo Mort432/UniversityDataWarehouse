@@ -281,6 +281,10 @@ create table "S1509508"."AssignmentFacts"
   "ModuleDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_AssignmentFacts" primary key ("AcademicYearDimId", "ModuleDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 create table "S1509508"."ComplaintFacts"
@@ -289,6 +293,10 @@ create table "S1509508"."ComplaintFacts"
   "CourseDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_ComplaintFacts" primary key ("AcademicYearDimId", "CourseDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 create table "S1509508"."EnrollmentFacts"
@@ -297,6 +305,10 @@ create table "S1509508"."EnrollmentFacts"
   "ModuleDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_EnrollmentFacts" primary key ("AcademicYearDimId", "ModuleDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 create table "S1509508"."GenderFacts"
@@ -305,6 +317,10 @@ create table "S1509508"."GenderFacts"
   "GenderDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_GenderFacts" primary key ("AcademicYearDimId", "GenderDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 create table "S1509508"."GraduationFacts"
@@ -313,6 +329,10 @@ create table "S1509508"."GraduationFacts"
   "CourseDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_GraduationFacts" primary key ("AcademicYearDimId", "CourseDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 create table "S1509508"."LecturerFacts"
@@ -321,6 +341,10 @@ create table "S1509508"."LecturerFacts"
   "LecturerDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_LecturerFacts" primary key ("AcademicYearDimId", "LecturerDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 create table "S1509508"."ModuleFacts"
@@ -329,6 +353,10 @@ create table "S1509508"."ModuleFacts"
   "CourseDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_ModuleFacts" primary key ("AcademicYearDimId", "CourseDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 create table "S1509508"."ResultFacts"
@@ -338,6 +366,10 @@ create table "S1509508"."ResultFacts"
   "ClassificationDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_ResultFacts" primary key ("AcademicYearDimId", "ModuleDimId", "ClassificationDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 create table "S1509508"."StudentFacts"
@@ -346,6 +378,10 @@ create table "S1509508"."StudentFacts"
   "CountryDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_StudentFacts" primary key ("AcademicYearDimId", "CountryDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 -- INDEXES
