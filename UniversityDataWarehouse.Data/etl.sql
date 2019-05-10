@@ -225,7 +225,7 @@ CREATE OR REPLACE PROCEDURE S1509508.USP_AssignmentFactEtl AS
       SELECT *
       FROM "AssignmentFacts"
       WHERE "ModuleDimId" = "ModuleId"
-      AND "AcademicYearDimId" = YEARS."Id"
+      AND "AcademicYearDimId" = RUNS."Id"
       )
     GROUP BY RUNS."AcademicYearId",
              "ModuleId"
