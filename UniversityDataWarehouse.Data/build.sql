@@ -314,6 +314,18 @@ create table "S1509508"."ComplaintFacts"
   PARTITION P0 VALUES LESS THAN (1)
 );
 
+create table "S1509508"."CourseFacts"
+(
+  "AcademicYearDimId" number(10, 0) not null,
+  "CampusDimId" number(10, 0) not null,
+  "Value" number(10, 0) not null,
+  constraint "PK_CourseFacts" primary key ("AcademicYearDimId", "CampusDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
+);
+
 create table "S1509508"."EnrollmentFacts"
 (
   "AcademicYearDimId" number(10, 0) not null,
@@ -405,6 +417,8 @@ create bitmap index "S1509508"."IX_AssignmentFacts__1448872138" on "S1509508"."A
 create bitmap index "S1509508"."IX_AssignmentFacts_ModuleDimId" on "S1509508"."AssignmentFacts" ("ModuleDimId") LOCAL;
 create bitmap index "S1509508"."IX_ComplaintFacts_A_1386423654" on "S1509508"."ComplaintFacts" ("AcademicYearDimId") LOCAL;
 create bitmap index "S1509508"."IX_ComplaintFacts_CourseDimId" on "S1509508"."ComplaintFacts" ("CourseDimId") LOCAL;
+create bitmap index "S1509508"."IX_CourseFacts_A_1386423654" on "S1509508"."CourseFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_CourseFacts_CampusDimId" on "S1509508"."CourseFacts" ("CampusDimId") LOCAL;
 create bitmap index "S1509508"."IX_EnrollmentFacts_A_177810579" on "S1509508"."EnrollmentFacts" ("AcademicYearDimId") LOCAL;
 create bitmap index "S1509508"."IX_EnrollmentFacts_ModuleDimId" on "S1509508"."EnrollmentFacts" ("ModuleDimId") LOCAL;
 create bitmap index "S1509508"."IX_GenderFacts_Acad_1333264266" on "S1509508"."GenderFacts" ("AcademicYearDimId") LOCAL;

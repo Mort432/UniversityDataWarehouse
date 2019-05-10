@@ -252,3 +252,23 @@ BEGIN
   ORDER BY "AcademicYearId",
            "CourseId";
 END;
+
+-- GENERATE COURSE FACTS
+CREATE OR REPLACE PROCEDURE S1509508.USP_CourseFactEtl AS
+BEGIN
+  INSERT INTO "CourseFacts"
+  SELECT "CourseId",
+         "AcademicYearId",
+         COUNT("Complaints"."Id")
+  FROM "Courses"
+  WHERE NOT EXISTS(
+      SELECT *
+      FROM "ComplaintFacts"
+      WHERE "CourseDimId" = "CourseId"
+        AND "AcademicYearDimId" = "AcademicYearId"
+    )
+  GROUP BY "AcademicYearId",
+           "CourseId"
+  ORDER BY "AcademicYearId",
+           "CourseId";
+END;

@@ -62,6 +62,7 @@ namespace UniversityDataWarehouse.Data.Contexts
         public DbSet<ComplaintFact> ComplaintFacts { get; set; }
         public DbSet<CountryDim> CountryDims { get; set; }
         public DbSet<CourseDim> CourseDims { get; set; }
+        public DbSet<CourseFact> CourseFacts { get; set; }
         public DbSet<EnrollmentFact> EnrollmentFacts { get; set; }
         public DbSet<GenderDim> GenderDims { get; set; }
         public DbSet<GenderFact> GenderFacts { get; set; }
