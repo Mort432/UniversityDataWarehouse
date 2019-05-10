@@ -99,6 +99,8 @@ CREATE OR REPLACE FUNCTION S1509508.UFN_ClassificationDimsGetId(ClassificationSt
       INTO id
     FROM "ClassificationDims"
       WHERE "Classification" = ClassificationString;
+      
+    RETURN id;
   END;
   
 -- CONVERT RESULT GRADE VALUE --> CLASSIFICATION DIM STRING
@@ -164,6 +166,8 @@ CREATE OR REPLACE FUNCTION S1509508.UFN_GenderDimsGetId(GenderString in NVARCHAR
       INTO id
     FROM "GenderDims"
       WHERE "Gender" = GenderString;
+      
+    RETURN id;
   END;
   
 -- POPULATE GENDER DIMS
@@ -203,8 +207,10 @@ CREATE OR REPLACE FUNCTION S1509508.UFN_GetCurrentAcademicYear RETURN NUMBER AS 
       INTO id
     FROM "AcademicYears"
     WHERE
-      CURRENT_DATE >= "AcademicYearStart"
-      AND CURRENT_DATE < "AcademicYearEnd";
+      "AcademicYearStart" <= CURRENT_DATE
+      AND "AcademicYearEnd" > CURRENT_DATE;
+      
+    RETURN id;
   end;
 
 ---------------------------------------------------------
