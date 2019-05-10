@@ -102,7 +102,7 @@ CREATE OR REPLACE FUNCTION S1509508.UFN_ClassificationDimsGetId(ClassificationSt
   END;
   
 -- CONVERT RESULT GRADE VALUE --> CLASSIFICATION DIM STRING
-CREATE OR REPLACE FUNCTION S1509508.UFC_MapGradeToClassification(grade in NUMBER) RETURN NVARCHAR2 AS
+CREATE OR REPLACE FUNCTION S1509508.UFN_MapGradeToClassification(grade in NUMBER) RETURN NVARCHAR2 AS
   BEGIN
     IF grade < 40 THEN
       RETURN 'U';
@@ -215,8 +215,8 @@ CREATE OR REPLACE FUNCTION S1509508.UFN_GetCurrentAcademicYear RETURN NUMBER AS 
 CREATE OR REPLACE PROCEDURE S1509508.USP_AssignmentFactEtl AS
   BEGIN
     INSERT INTO "AssignmentFacts"
-    SELECT "ModuleId",
-           RUNS."AcademicYearId",
+    SELECT  RUNS."AcademicYearId",
+           "ModuleId",
            COUNT("Assignments"."Id")
     FROM "Assignments"
       INNER JOIN "ModuleRuns" RUNS
@@ -237,8 +237,8 @@ CREATE OR REPLACE PROCEDURE S1509508.USP_AssignmentFactEtl AS
 CREATE OR REPLACE PROCEDURE S1509508.USP_ComplaintFactEtl AS
 BEGIN
   INSERT INTO "ComplaintFacts"
-  SELECT "CourseId",
-         "AcademicYearId",
+  SELECT "AcademicYearId",
+         "CourseId",
          COUNT("Complaints"."Id")
   FROM "Complaints"
   WHERE NOT EXISTS(
@@ -257,18 +257,176 @@ END;
 CREATE OR REPLACE PROCEDURE S1509508.USP_CourseFactEtl AS
 BEGIN
   INSERT INTO "CourseFacts"
-  SELECT "CourseId",
-         "AcademicYearId",
-         COUNT("Complaints"."Id")
+  SELECT UFN_GetCurrentAcademicYear(),
+         "CampusId",
+         COUNT("Courses"."Id")
   FROM "Courses"
   WHERE NOT EXISTS(
       SELECT *
-      FROM "ComplaintFacts"
+      FROM "CourseFacts"
+      WHERE "CampusDimId" = "CampusId"
+        AND "AcademicYearDimId" = UFN_GetCurrentAcademicYear()
+    )
+  GROUP BY UFN_GetCurrentAcademicYear(),
+           "CampusId"
+  ORDER BY UFN_GetCurrentAcademicYear(),
+           "CampusId";
+END;
+
+-- GENERATE ENROLLMENT FACTS
+CREATE OR REPLACE PROCEDURE S1509508.USP_EnrollmentFactEtl AS
+BEGIN
+  INSERT INTO "EnrollmentFacts"
+  SELECT RUNS."AcademicYearId",
+         "ModuleId",
+          COUNT("Enrollments"."StudentId")
+  FROM "Enrollments"
+    INNER JOIN "ModuleRuns" RUNS
+      ON "Enrollments"."ModuleRunId" = RUNS."Id"
+  WHERE NOT EXISTS(
+      SELECT *
+      FROM "EnrollmentFacts"
+      WHERE "ModuleDimId" = "ModuleId"
+        AND "AcademicYearDimId" = RUNS."AcademicYearId"
+    )
+  GROUP BY RUNS."AcademicYearId", 
+           "ModuleId"
+  ORDER BY RUNS."AcademicYearId",
+           "ModuleId";
+END;
+
+-- GENERATE GENDER FACTS
+CREATE OR REPLACE PROCEDURE S1509508.USP_GenderFactEtl AS
+BEGIN
+  INSERT INTO "GenderFacts"
+  SELECT UFN_GetCurrentAcademicYear(),
+         UFN_GenderDimsGetId("Gender"),
+         COUNT("Id")
+  FROM "Students"
+  WHERE NOT EXISTS(
+      SELECT *
+      FROM "GenderFacts"
+      WHERE "GenderDimId" = UFN_GenderDimsGetId("Gender")
+        AND "AcademicYearDimId" = UFN_GetCurrentAcademicYear()
+    )
+  GROUP BY UFN_GetCurrentAcademicYear(),
+           UFN_GenderDimsGetId("Gender")
+  ORDER BY UFN_GetCurrentAcademicYear(),
+           UFN_GenderDimsGetId("Gender");
+END;
+
+-- GENERATE GRADUATION FACTS
+CREATE OR REPLACE PROCEDURE S1509508.USP_GraduationFactEtl AS
+BEGIN
+  INSERT INTO "GraduationFacts"
+  SELECT "YearId",
+         "CourseId",
+         COUNT("Id")
+  FROM "Graduations"
+  WHERE NOT EXISTS(
+      SELECT *
+      FROM "GraduationFacts"
       WHERE "CourseDimId" = "CourseId"
-        AND "AcademicYearDimId" = "AcademicYearId"
+        AND "AcademicYearDimId" = "YearId"
+    )
+  GROUP BY "YearId",
+           "CourseId"
+  ORDER BY "YearId",
+           "CourseId";
+END;
+
+-- GENERATE LECTURER FACTS
+CREATE OR REPLACE PROCEDURE S1509508.USP_LecturerFactEtl AS
+BEGIN
+  INSERT INTO "LecturerFacts"
+  SELECT MR."AcademicYearId",
+         L."Id",
+         AVG(R."Grade")
+  FROM "Lecturers" L
+  INNER JOIN "ModuleRuns" MR
+    ON L."Id" = MR."LecturerId"
+  INNER JOIN "Assignments" A
+    ON A."ModuleRunId" = MR."Id"
+  INNER JOIN "Results" R
+    ON R."AssignmentId" = A."Id"
+  WHERE NOT EXISTS(
+      SELECT *
+      FROM "LecturerFacts"
+      WHERE "LecturerDimId" = L."Id"
+        AND "AcademicYearDimId" = MR."AcademicYearId"
     )
   GROUP BY "AcademicYearId",
-           "CourseId"
+           L."Id"
   ORDER BY "AcademicYearId",
-           "CourseId";
+           L."Id";
+END;
+
+-- GENERATE MODULE FACTS
+CREATE OR REPLACE PROCEDURE S1509508.USP_ModuleFactEtl AS
+BEGIN
+  INSERT INTO "ModuleFacts"
+  SELECT UFN_GetCurrentAcademicYear(),
+         CM."CourseId",
+         COUNT("Id")
+  FROM "Modules" M
+  INNER JOIN "CourseModules" CM
+            ON CM."ModuleId" = M."Id"
+  WHERE NOT EXISTS(
+      SELECT *
+      FROM "ModuleFacts"
+      WHERE "CourseDimId" = CM."CourseId"
+        AND "AcademicYearDimId" = UFN_GetCurrentAcademicYear()
+    )
+  GROUP BY UFN_GetCurrentAcademicYear(),
+           CM."CourseId"
+  ORDER BY UFN_GetCurrentAcademicYear(),
+           CM."CourseId";
+END;
+
+-- GENERATE RESULT FACTS
+CREATE OR REPLACE PROCEDURE S1509508.USP_ResultFactEtl AS
+BEGIN
+  INSERT INTO "ResultFacts"
+  SELECT MR."AcademicYearId",
+         MR."ModuleId",
+         UFN_ClassificationDimsGetId(UFN_MapGradeToClassification(R."Grade")),
+         COUNT(R."Id")
+  FROM "Results" R
+  INNER JOIN "Assignments" A
+            ON R."AssignmentId" = A."Id"
+  INNER JOIN "ModuleRuns" MR
+    ON MR."Id" = A."ModuleRunId"
+  WHERE NOT EXISTS(
+      SELECT *
+      FROM "ResultFacts"
+      WHERE "ModuleDimId" = MR."ModuleId"
+        AND "ClassificationDimId" = UFN_ClassificationDimsGetId(UFN_MapGradeToClassification(R."Grade"))
+        AND "AcademicYearDimId" = UFN_GetCurrentAcademicYear()
+    )
+  GROUP BY MR."AcademicYearId",
+            MR."ModuleId",
+            UFN_ClassificationDimsGetId(UFN_MapGradeToClassification(R."Grade"))
+  ORDER BY MR."AcademicYearId",
+            MR."ModuleId",
+            UFN_ClassificationDimsGetId(UFN_MapGradeToClassification(R."Grade"));
+END;
+
+-- GENERATE STUDENT FACTS
+CREATE OR REPLACE PROCEDURE S1509508.USP_StudentFactEtl AS
+BEGIN
+  INSERT INTO "StudentFacts"
+  SELECT UFN_GetCurrentAcademicYear(),
+         "CountryId",
+         COUNT("Id")
+  FROM "Students"
+  WHERE NOT EXISTS(
+      SELECT *
+      FROM "StudentFacts"
+      WHERE "CountryDimId" = "CountryId"
+        AND "AcademicYearDimId" = UFN_GetCurrentAcademicYear()
+    )
+  GROUP BY UFN_GetCurrentAcademicYear(),
+           "CountryId"
+  ORDER BY UFN_GetCurrentAcademicYear(),
+           "CountryId";
 END;
