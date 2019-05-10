@@ -430,3 +430,50 @@ BEGIN
   ORDER BY UFN_GetCurrentAcademicYear(),
            "CountryId";
 END;
+  
+------------------------------
+---- COMPILED ETL PROCESS ----
+------------------------------
+
+CREATE OR REPLACE PROCEDURE S1509508.USP_Etl AS
+BEGIN
+  -------------------------------
+  ---- INITIALIZE DIMENSIONS ----
+  -------------------------------
+  USP_AcademicYearDims();
+  USP_CampusDims();
+  USP_CountryDims();
+  USP_CourseDims();
+  USP_LecturerDims();
+  USP_ModuleDims();
+  USP_ClassificationDimsEtl();
+  USP_GenderDimsEtl();
+
+  ------------------------
+  ---- GENERATE FACTS ----
+  ------------------------
+  USP_AssignmentFactEtl();
+  USP_ComplaintFactEtl();
+  USP_CourseFactEtl();
+  USP_EnrollmentFactEtl();
+  USP_GenderFactEtl();
+  USP_GraduationFactEtl();
+  USP_LecturerFactEtl();
+  USP_ModuleFactEtl();
+  USP_ResultFactEtl();
+  USP_StudentFactEtl();
+END;
+
+---- THIS ASSIGMENT BROUGHT TO YOU ----
+----    BY THE HEALING POWERS OF   ----
+---------------------------------------
+--   88                                 
+--   ""                                                                
+--   88 ,adPPYYba, 888888888 888888888  
+--   88 ""     `Y8      a8P"      a8P"  
+--   88 ,adPPPPP88   ,d8P'     ,d8P'    
+--   88 88,    ,88 ,d8"      ,d8"       
+--   88 `"8bbdP"Y8 888888888 888888888  
+ -- ,88                                 
+--888P"           
+---------------------------------------
