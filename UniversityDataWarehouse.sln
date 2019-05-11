@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityDataWarehouse.Mod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityDataWarehouse.Data", "UniversityDataWarehouse.Data\UniversityDataWarehouse.Data.csproj", "{1093390A-13A6-4655-B859-2F108AA597DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityDataWarehouse.Extensions", "UniversityDataWarehouse.Extensions\UniversityDataWarehouse.Extensions.csproj", "{44E2C448-84C1-4BF8-B9EA-4B7F65DED662}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{1093390A-13A6-4655-B859-2F108AA597DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1093390A-13A6-4655-B859-2F108AA597DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1093390A-13A6-4655-B859-2F108AA597DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44E2C448-84C1-4BF8-B9EA-4B7F65DED662}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44E2C448-84C1-4BF8-B9EA-4B7F65DED662}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44E2C448-84C1-4BF8-B9EA-4B7F65DED662}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44E2C448-84C1-4BF8-B9EA-4B7F65DED662}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

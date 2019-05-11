@@ -42,6 +42,14 @@
           <HintPath>..\packages\ControlzEx.4.0.0-alpha0222\lib\net462\ControlzEx.dll</HintPath>
           <Private>True</Private>
         </Reference>
+        <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df">
+          <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df">
+          <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f">
           <HintPath>..\packages\MahApps.Metro.2.0.0-alpha0212\lib\net47\MahApps.Metro.dll</HintPath>
           <Private>True</Private>
@@ -79,6 +87,10 @@
         <Compile Include="Pages\Login.xaml.cs">
           <DependentUpon>Login.xaml</DependentUpon>
         </Compile>
+        <Compile Include="ViewModels\FactCharts\ChartViewModelBase.cs" />
+        <Compile Include="ViewModels\FactCharts\FactChartViewModelBase.cs" />
+        <Compile Include="ViewModels\FactCharts\IChartViewModel.cs" />
+        <Compile Include="ViewModels\FactCharts\IFactChartViewModel.cs" />
         <Compile Include="ViewModels\LoginViewModel.cs" />
         <Compile Include="ViewModels\MainPageViewModel.cs" />
         <Page Include="MainWindow.xaml">
@@ -122,6 +134,10 @@
       <ProjectReference Include="..\UniversityDataWarehouse.Data\UniversityDataWarehouse.Data.csproj">
         <Project>{1093390a-13a6-4655-b859-2f108aa597df}</Project>
         <Name>UniversityDataWarehouse.Data</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\UniversityDataWarehouse.Extensions\UniversityDataWarehouse.Extensions.csproj">
+        <Project>{44e2c448-84c1-4bf8-b9ea-4b7f65ded662}</Project>
+        <Name>UniversityDataWarehouse.Extensions</Name>
       </ProjectReference>
       <ProjectReference Include="..\UniversityDataWarehouse.Models\UniversityDataWarehouse.Models.csproj">
         <Project>{b3b17c78-5451-4d1f-9c09-bba40e44344c}</Project>
