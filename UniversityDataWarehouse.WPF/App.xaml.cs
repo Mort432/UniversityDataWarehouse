@@ -5,6 +5,7 @@ using Prism.Modularity;
 using UniversityDataWarehouse.Data.Contexts;
 using UniversityDataWarehouse.Services;
 using UniversityDataWarehouse.WPF.ViewModels;
+using UniversityDataWarehouse.WPF.Views;
 
 namespace UniversityDataWarehouse.WPF
 {

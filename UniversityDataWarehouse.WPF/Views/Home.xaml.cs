@@ -1,6 +1,6 @@
 using System.Windows.Controls;
 
-namespace UniversityDataWarehouse.WPF.Pages
+namespace UniversityDataWarehouse.WPF.Views
 {
     public partial class Home : Page
     {

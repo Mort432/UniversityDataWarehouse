@@ -5,7 +5,7 @@ using MahApps.Metro.Controls;
 using UniversityDataWarehouse.Models;
 using UniversityDataWarehouse.WPF.ViewModels;
 
-namespace UniversityDataWarehouse.WPF.Pages
+namespace UniversityDataWarehouse.WPF.Views
 {
     public partial class Main : Page
     {
@@ -23,7 +23,7 @@ namespace UniversityDataWarehouse.WPF.Pages
             {
                 ((MainPageViewModel)DataContext).Logout();
 
-                MainWindow.WindowFrame.Navigate(new Login());
+                //MainWindow.WindowFrame.Navigate(new Login());
             }
             else
             {

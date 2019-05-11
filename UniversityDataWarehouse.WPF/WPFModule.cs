@@ -2,7 +2,7 @@ using System;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
-using UniversityDataWarehouse.WPF.Pages;
+using UniversityDataWarehouse.WPF.Views;
 
 namespace UniversityDataWarehouse.WPF
 {
@@ -16,6 +16,7 @@ namespace UniversityDataWarehouse.WPF
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            
             
         }
     }

@@ -4,7 +4,7 @@ using Autofac;
 using UniversityDataWarehouse.Data.Entities;
 using UniversityDataWarehouse.WPF.ViewModels;
 
-namespace UniversityDataWarehouse.WPF.Pages
+namespace UniversityDataWarehouse.WPF.Views
 {
     public partial class Login : Page
     {
@@ -24,7 +24,7 @@ namespace UniversityDataWarehouse.WPF.Pages
 
             if (loginSuccess)
             {
-                MainWindow.WindowFrame.Navigate(new Main());
+                //MainWindow.WindowFrame.Navigate(new Main());
             }
         }
     }

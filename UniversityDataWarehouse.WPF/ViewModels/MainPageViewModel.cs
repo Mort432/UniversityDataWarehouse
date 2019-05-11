@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UniversityDataWarehouse.Models;
 using UniversityDataWarehouse.Services;
-using UniversityDataWarehouse.WPF.Pages;
+using UniversityDataWarehouse.WPF.Views;
 
 namespace UniversityDataWarehouse.WPF.ViewModels
 {

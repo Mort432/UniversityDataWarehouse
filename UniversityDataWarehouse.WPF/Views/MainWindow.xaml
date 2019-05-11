@@ -1,14 +1,11 @@
 ﻿<Controls:MetroWindow 
-        x:Class="UniversityDataWarehouse.WPF.MainWindow"
+        x:Class="UniversityDataWarehouse.WPF.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UniversityDataWarehouse.WPF"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        mc:Ignorable="d"
         Title="University Data Warehouse">
 
         <ContentControl prism:RegionManager.RegionName="ContentRegion"/>
