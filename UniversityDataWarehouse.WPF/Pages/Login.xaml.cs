@@ -12,9 +12,7 @@ namespace UniversityDataWarehouse.WPF.Pages
         {
             InitializeComponent();
         }
-        
-        //Inject ViewModel
-        private LoginViewModel ViewModel = App.Container.Resolve<LoginViewModel>();
+       
 
         private void LoginButton_OnClick(object sender, RoutedEventArgs e)
         {
@@ -22,7 +20,7 @@ namespace UniversityDataWarehouse.WPF.Pages
             user.Username = UsernameTextBox.Text;
             user.Password = PasswordTextBox.Password;
 
-            var loginSuccess = ViewModel.Login(user);
+            var loginSuccess = ((LoginViewModel)DataContext).Login(user);
 
             if (loginSuccess)
             {

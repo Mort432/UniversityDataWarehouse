@@ -73,6 +73,10 @@
           <HintPath>..\packages\Prism.Core.7.1.0.431\lib\net45\Prism.dll</HintPath>
           <Private>True</Private>
         </Reference>
+        <Reference Include="Prism.Autofac.Wpf, Version=7.1.0.431, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59">
+          <HintPath>..\packages\Prism.Autofac.7.1.0.431\lib\net45\Prism.Autofac.Wpf.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="Prism.Wpf, Version=7.1.0.431, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59">
           <HintPath>..\packages\Prism.Wpf.7.1.0.431\lib\net45\Prism.Wpf.dll</HintPath>
           <Private>True</Private>
@@ -113,6 +117,7 @@
         <Compile Include="ViewModels\FactCharts\ViewModelBase.cs" />
         <Compile Include="ViewModels\LoginViewModel.cs" />
         <Compile Include="ViewModels\MainPageViewModel.cs" />
+        <Compile Include="WPFModule.cs" />
         <Page Include="MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>

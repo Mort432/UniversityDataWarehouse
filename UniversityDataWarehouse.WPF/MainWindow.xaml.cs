@@ -18,16 +18,5 @@ namespace UniversityDataWarehouse.WPF
         {
             InitializeComponent();
         }
-
-        private MainPageViewModel ViewModel = App.Container.Resolve<MainPageViewModel>();
-
-        protected override void OnInitialized(EventArgs e)
-        {
-            WindowFrame = ContentFrame;
-
-            WindowFrame.Navigate(new Login());
-            
-            base.OnInitialized(e);
-        }
     }
 }

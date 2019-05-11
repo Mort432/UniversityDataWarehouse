@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 using Autofac;
+using Prism.Ioc;
+using Prism.Modularity;
 using UniversityDataWarehouse.Data.Contexts;
 using UniversityDataWarehouse.Services;
 using UniversityDataWarehouse.WPF.ViewModels;
@@ -11,26 +13,26 @@ namespace UniversityDataWarehouse.WPF
     /// </summary>
     public partial class App
     {
-        public static IContainer Container { get; private set; }
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            BuildContainer();
+        
         }
 
-        private void BuildContainer()
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            var builder = new ContainerBuilder();
-            
-            //Services
-            builder.RegisterType<AuthService>().As<IAuthService>().SingleInstance();
-            builder.RegisterType<SeedService>().As<ISeedService>().SingleInstance();
+            containerRegistry.RegisterSingleton<IAuthService, AuthService>();
+            containerRegistry.RegisterSingleton<ISeedService, SeedService>();
+        }
 
-            //View models
-            builder.RegisterType<MainPageViewModel>().InstancePerDependency();
-            builder.RegisterType<LoginViewModel>().InstancePerDependency();
-
-            Container = builder.Build();
+        protected override Window CreateShell()
+        {
+            return Container.Resolve<MainWindow>();
+        }
+        
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        {
+            moduleCatalog.AddModule<WPFModule>();
         }
     }
 }

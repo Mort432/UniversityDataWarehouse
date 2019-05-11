@@ -14,16 +14,6 @@ namespace UniversityDataWarehouse.WPF.Pages
             InitializeComponent();
         }
         
-        //Dependency injection
-        private MainPageViewModel ViewModel = App.Container.Resolve<MainPageViewModel>();
-
-        protected override void OnInitialized(EventArgs e)
-        {
-            DataContext = ViewModel;
-            
-            base.OnInitialized(e);
-        }
-
         private void HamburgerMenu_OnItemInvoked(object sender, HamburgerMenuItemInvokedEventArgs e)
         {
             //Get nav item
@@ -31,8 +21,8 @@ namespace UniversityDataWarehouse.WPF.Pages
 
             if (navItem.Content == "Log Out")
             {
-                ViewModel.Logout();
-                
+                ((MainPageViewModel)DataContext).Logout();
+
                 MainWindow.WindowFrame.Navigate(new Login());
             }
             else

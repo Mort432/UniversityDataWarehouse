@@ -6,6 +6,9 @@
       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
       xmlns:local="clr-namespace:UniversityDataWarehouse.WPF.Pages"
       xmlns:models="clr-namespace:UniversityDataWarehouse.Models;assembly=UniversityDataWarehouse.Models"
+      xmlns:prism="http://http://prismlibrary.com/"
+      xmlns:mvvm="http://prismlibrary.com/"
+      mvvm:ViewModelLocator.AutoWireViewModel="True"
       mc:Ignorable="d">
     
       <Controls:HamburgerMenu
