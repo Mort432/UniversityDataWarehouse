@@ -1,0 +1,14 @@
+﻿<mah:MetroWindow x:Class="UniversityDataWarehouse.Apps.Wpf.Views.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:local="clr-namespace:UniversityDataWarehouse.Apps.Wpf"
+                 xmlns:mvvm="http://prismlibrary.com/"
+                 xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                 mc:Ignorable="d"
+                 Title="University Data Warehouse"
+                 mvvm:ViewModelLocator.AutoWireViewModel="True">
+
+    <ContentControl mvvm:RegionManager.RegionName="ContentRegion" />
+</mah:MetroWindow>
