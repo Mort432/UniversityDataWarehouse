@@ -23,7 +23,7 @@ namespace UniversityDataWarehouse.WPF.ViewModels.FactCharts
             get => _moduleDim;
             set
             {
-                
+                if (!SetProperty(ref _moduleDim, value)) return;
             }
         }
     }

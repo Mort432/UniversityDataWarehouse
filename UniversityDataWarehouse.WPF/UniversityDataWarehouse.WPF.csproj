@@ -38,6 +38,10 @@
           <HintPath>..\packages\Autofac.4.9.1\lib\net45\Autofac.dll</HintPath>
           <Private>True</Private>
         </Reference>
+        <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0">
+          <HintPath>..\packages\CommonServiceLocator.2.0.4\lib\net47\CommonServiceLocator.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e">
           <HintPath>..\packages\ControlzEx.4.0.0-alpha0222\lib\net462\ControlzEx.dll</HintPath>
           <Private>True</Private>
@@ -65,9 +69,22 @@
         <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342">
           <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.18.3.0\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
         </Reference>
+        <Reference Include="Prism, Version=7.1.0.431, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59">
+          <HintPath>..\packages\Prism.Core.7.1.0.431\lib\net45\Prism.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Prism.Wpf, Version=7.1.0.431, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59">
+          <HintPath>..\packages\Prism.Wpf.7.1.0.431\lib\net45\Prism.Wpf.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System" />
+        <Reference Include="System.Configuration" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
+        <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+          <HintPath>..\packages\Prism.Wpf.7.1.0.431\lib\net45\System.Windows.Interactivity.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System.Xml" />
         <Reference Include="System.Xaml">
             <RequiredTargetFramework>4.0</RequiredTargetFramework>
@@ -92,6 +109,8 @@
         <Compile Include="ViewModels\FactCharts\FactChartViewModelBase.cs" />
         <Compile Include="ViewModels\FactCharts\IChartViewModel.cs" />
         <Compile Include="ViewModels\FactCharts\IFactChartViewModel.cs" />
+        <Compile Include="ViewModels\FactCharts\IViewModel.cs" />
+        <Compile Include="ViewModels\FactCharts\ViewModelBase.cs" />
         <Compile Include="ViewModels\LoginViewModel.cs" />
         <Compile Include="ViewModels\MainPageViewModel.cs" />
         <Page Include="MainWindow.xaml">
