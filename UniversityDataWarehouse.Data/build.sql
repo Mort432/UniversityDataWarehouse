@@ -288,6 +288,10 @@ create table "S1509508"."AssignmentFacts"
   "ModuleDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_AssignmentFacts" primary key ("AcademicYearDimId", "ModuleDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 create table "S1509508"."ComplaintFacts"
@@ -296,6 +300,10 @@ create table "S1509508"."ComplaintFacts"
   "CourseDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_ComplaintFacts" primary key ("AcademicYearDimId", "CourseDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 create table "S1509508"."CourseFacts"
@@ -304,6 +312,10 @@ create table "S1509508"."CourseFacts"
   "CampusDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_CourseFacts" primary key ("AcademicYearDimId", "CampusDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 create table "S1509508"."EnrollmentFacts"
@@ -312,6 +324,10 @@ create table "S1509508"."EnrollmentFacts"
   "ModuleDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_EnrollmentFacts" primary key ("AcademicYearDimId", "ModuleDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 create table "S1509508"."GenderFacts"
@@ -320,6 +336,10 @@ create table "S1509508"."GenderFacts"
   "GenderDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_GenderFacts" primary key ("AcademicYearDimId", "GenderDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 create table "S1509508"."GraduationFacts"
@@ -328,6 +348,10 @@ create table "S1509508"."GraduationFacts"
   "CourseDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_GraduationFacts" primary key ("AcademicYearDimId", "CourseDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 create table "S1509508"."LecturerFacts"
@@ -336,6 +360,10 @@ create table "S1509508"."LecturerFacts"
   "LecturerDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_LecturerFacts" primary key ("AcademicYearDimId", "LecturerDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 create table "S1509508"."ModuleFacts"
@@ -344,6 +372,10 @@ create table "S1509508"."ModuleFacts"
   "CourseDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_ModuleFacts" primary key ("AcademicYearDimId", "CourseDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 create table "S1509508"."ResultFacts"
@@ -353,6 +385,10 @@ create table "S1509508"."ResultFacts"
   "ClassificationDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_ResultFacts" primary key ("AcademicYearDimId", "ModuleDimId", "ClassificationDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 create table "S1509508"."StudentFacts"
@@ -361,31 +397,35 @@ create table "S1509508"."StudentFacts"
   "CountryDimId" number(10, 0) not null,
   "Value" number(10, 0) not null,
   constraint "PK_StudentFacts" primary key ("AcademicYearDimId", "CountryDimId")
+)
+  PARTITION BY RANGE ("AcademicYearDimId") INTERVAL (1)
+(
+  PARTITION P0 VALUES LESS THAN (1)
 );
 
 -- INDEXES
 
-create index "S1509508"."IX_AssignmentFacts__1448872138" on "S1509508"."AssignmentFacts" ("AcademicYearDimId");
-create index "S1509508"."IX_AssignmentFacts_ModuleDimId" on "S1509508"."AssignmentFacts" ("ModuleDimId");
-create index "S1509508"."IX_ComplaintFacts_A_1386423654" on "S1509508"."ComplaintFacts" ("AcademicYearDimId");
-create index "S1509508"."IX_ComplaintFacts_CourseDimId" on "S1509508"."ComplaintFacts" ("CourseDimId");
-create index "S1509508"."IX_CourseFacts_Acad_1029085906" on "S1509508"."CourseFacts" ("AcademicYearDimId");
-create index "S1509508"."IX_CourseFacts_CampusDimId" on "S1509508"."CourseFacts" ("CampusDimId");
-create index "S1509508"."IX_EnrollmentFacts_A_177810579" on "S1509508"."EnrollmentFacts" ("AcademicYearDimId");
-create index "S1509508"."IX_EnrollmentFacts_ModuleDimId" on "S1509508"."EnrollmentFacts" ("ModuleDimId");
-create index "S1509508"."IX_GenderFacts_Acad_1333264266" on "S1509508"."GenderFacts" ("AcademicYearDimId");
-create index "S1509508"."IX_GenderFacts_GenderDimId" on "S1509508"."GenderFacts" ("GenderDimId");
-create index "S1509508"."IX_GraduationFacts_A_465991385" on "S1509508"."GraduationFacts" ("AcademicYearDimId");
-create index "S1509508"."IX_GraduationFacts_CourseDimId" on "S1509508"."GraduationFacts" ("CourseDimId");
-create index "S1509508"."IX_LecturerFacts_Aca_925118121" on "S1509508"."LecturerFacts" ("AcademicYearDimId");
-create index "S1509508"."IX_LecturerFacts_LecturerDimId" on "S1509508"."LecturerFacts" ("LecturerDimId");
-create index "S1509508"."IX_ModuleFacts_Acad_2060256043" on "S1509508"."ModuleFacts" ("AcademicYearDimId");
-create index "S1509508"."IX_ModuleFacts_CourseDimId" on "S1509508"."ModuleFacts" ("CourseDimId");
-create index "S1509508"."IX_ResultFacts_Acad_1508787010" on "S1509508"."ResultFacts" ("AcademicYearDimId");
-create index "S1509508"."IX_ResultFacts_ModuleDimId" on "S1509508"."ResultFacts" ("ModuleDimId");
-create index "S1509508"."IX_ResultFacts_Clas_1227287608" on "S1509508"."ResultFacts" ("ClassificationDimId");
-create index "S1509508"."IX_StudentFacts_Aca_1313936632" on "S1509508"."StudentFacts" ("AcademicYearDimId");
-create index "S1509508"."IX_StudentFacts_CountryDimId" on "S1509508"."StudentFacts" ("CountryDimId");
+create bitmap index "S1509508"."IX_AssignmentFacts__1448872138" on "S1509508"."AssignmentFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_AssignmentFacts_ModuleDimId" on "S1509508"."AssignmentFacts" ("ModuleDimId") LOCAL;
+create bitmap index "S1509508"."IX_ComplaintFacts_A_1386423654" on "S1509508"."ComplaintFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_ComplaintFacts_CourseDimId" on "S1509508"."ComplaintFacts" ("CourseDimId") LOCAL;
+create bitmap index "S1509508"."IX_CourseFacts_Acad_1029085906" on "S1509508"."CourseFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_CourseFacts_CampusDimId" on "S1509508"."CourseFacts" ("CampusDimId") LOCAL;
+create bitmap index "S1509508"."IX_EnrollmentFacts_A_177810579" on "S1509508"."EnrollmentFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_EnrollmentFacts_ModuleDimId" on "S1509508"."EnrollmentFacts" ("ModuleDimId") LOCAL;
+create bitmap index "S1509508"."IX_GenderFacts_Acad_1333264266" on "S1509508"."GenderFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_GenderFacts_GenderDimId" on "S1509508"."GenderFacts" ("GenderDimId") LOCAL;
+create bitmap index "S1509508"."IX_GraduationFacts_A_465991385" on "S1509508"."GraduationFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_GraduationFacts_CourseDimId" on "S1509508"."GraduationFacts" ("CourseDimId") LOCAL;
+create bitmap index "S1509508"."IX_LecturerFacts_Aca_925118121" on "S1509508"."LecturerFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_LecturerFacts_LecturerDimId" on "S1509508"."LecturerFacts" ("LecturerDimId") LOCAL;
+create bitmap index "S1509508"."IX_ModuleFacts_Acad_2060256043" on "S1509508"."ModuleFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_ModuleFacts_CourseDimId" on "S1509508"."ModuleFacts" ("CourseDimId") LOCAL;
+create bitmap index "S1509508"."IX_ResultFacts_Acad_1508787010" on "S1509508"."ResultFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_ResultFacts_ModuleDimId" on "S1509508"."ResultFacts" ("ModuleDimId") LOCAL;
+create bitmap index "S1509508"."IX_ResultFacts_Clas_1227287608" on "S1509508"."ResultFacts" ("ClassificationDimId") LOCAL;
+create bitmap index "S1509508"."IX_StudentFacts_Aca_1313936632" on "S1509508"."StudentFacts" ("AcademicYearDimId") LOCAL;
+create bitmap index "S1509508"."IX_StudentFacts_CountryDimId" on "S1509508"."StudentFacts" ("CountryDimId") LOCAL;
 
 
 ---- DIM_DB (DIMS) ----
@@ -448,12 +488,6 @@ create table "S1509508"."LecturerDims"
   "LastName" nvarchar2(2000) null,
   constraint "PK_LecturerDims" primary key ("Id")
 );
-
--- SEQUENCES
-
--- TRIGGERS
-
-
 
 ---- FACT/DIM FOREIGN KEYS ----
 
