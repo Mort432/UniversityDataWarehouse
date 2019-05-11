@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class InitCreate : DbMigration
     {
         public override void Up()
         {
@@ -11,7 +11,7 @@
                 "S1509508.AcademicYearDims",
                 c => new
                     {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
                         Year = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => t.Id);
@@ -45,7 +45,7 @@
                 "S1509508.ModuleDims",
                 c => new
                     {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
                         Name = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id);
@@ -57,30 +57,27 @@
                         Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         Title = c.String(maxLength: 2000),
                         ModuleRunId = c.Decimal(nullable: false, precision: 10, scale: 0),
-                        ModuleRun_AcademicYearId = c.Decimal(precision: 10, scale: 0),
-                        ModuleRun_ModuleId = c.Decimal(precision: 10, scale: 0),
-                        ModuleRun_LecturerId = c.Decimal(precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("S1509508.ModuleRuns", t => new { t.ModuleRun_AcademicYearId, t.ModuleRun_ModuleId, t.ModuleRun_LecturerId })
-                .Index(t => new { t.ModuleRun_AcademicYearId, t.ModuleRun_ModuleId, t.ModuleRun_LecturerId });
+                .ForeignKey("S1509508.ModuleRuns", t => t.ModuleRunId, cascadeDelete: true)
+                .Index(t => t.ModuleRunId);
             
             CreateTable(
                 "S1509508.ModuleRuns",
                 c => new
                     {
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         AcademicYearId = c.Decimal(nullable: false, precision: 10, scale: 0),
                         ModuleId = c.Decimal(nullable: false, precision: 10, scale: 0),
                         LecturerId = c.Decimal(nullable: false, precision: 10, scale: 0),
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
-                .PrimaryKey(t => new { t.AcademicYearId, t.ModuleId, t.LecturerId })
+                .PrimaryKey(t => t.Id)
                 .ForeignKey("S1509508.Modules", t => t.ModuleId, cascadeDelete: true)
                 .ForeignKey("S1509508.Lecturers", t => t.LecturerId, cascadeDelete: true)
-                .ForeignKey("S1509508.AcademicYears", t => t.Id, cascadeDelete: true)
+                .ForeignKey("S1509508.AcademicYears", t => t.AcademicYearId, cascadeDelete: true)
+                .Index(t => t.AcademicYearId)
                 .Index(t => t.ModuleId)
-                .Index(t => t.LecturerId)
-                .Index(t => t.Id);
+                .Index(t => t.LecturerId);
             
             CreateTable(
                 "S1509508.Enrollments",
@@ -88,15 +85,12 @@
                     {
                         StudentId = c.Decimal(nullable: false, precision: 10, scale: 0),
                         ModuleRunId = c.Decimal(nullable: false, precision: 10, scale: 0),
-                        ModuleRun_AcademicYearId = c.Decimal(precision: 10, scale: 0),
-                        ModuleRun_ModuleId = c.Decimal(precision: 10, scale: 0),
-                        ModuleRun_LecturerId = c.Decimal(precision: 10, scale: 0),
                     })
                 .PrimaryKey(t => new { t.StudentId, t.ModuleRunId })
-                .ForeignKey("S1509508.ModuleRuns", t => new { t.ModuleRun_AcademicYearId, t.ModuleRun_ModuleId, t.ModuleRun_LecturerId })
+                .ForeignKey("S1509508.ModuleRuns", t => t.ModuleRunId, cascadeDelete: true)
                 .ForeignKey("S1509508.Students", t => t.StudentId, cascadeDelete: true)
                 .Index(t => t.StudentId)
-                .Index(t => new { t.ModuleRun_AcademicYearId, t.ModuleRun_ModuleId, t.ModuleRun_LecturerId });
+                .Index(t => t.ModuleRunId);
             
             CreateTable(
                 "S1509508.Students",
@@ -211,7 +205,7 @@
                 "S1509508.CampusDims",
                 c => new
                     {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
                         Name = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id);
@@ -220,7 +214,7 @@
                 "S1509508.ClassificationDims",
                 c => new
                     {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
                         Classification = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id);
@@ -243,7 +237,7 @@
                 "S1509508.CourseDims",
                 c => new
                     {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
                         Name = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id);
@@ -252,10 +246,24 @@
                 "S1509508.CountryDims",
                 c => new
                     {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
                         Name = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "S1509508.CourseFacts",
+                c => new
+                    {
+                        AcademicYearDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        CampusDimId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        Value = c.Decimal(nullable: false, precision: 10, scale: 0),
+                    })
+                .PrimaryKey(t => new { t.AcademicYearDimId, t.CampusDimId })
+                .ForeignKey("S1509508.AcademicYearDims", t => t.AcademicYearDimId, cascadeDelete: true)
+                .ForeignKey("S1509508.CampusDims", t => t.CampusDimId, cascadeDelete: true)
+                .Index(t => t.AcademicYearDimId)
+                .Index(t => t.CampusDimId);
             
             CreateTable(
                 "S1509508.EnrollmentFacts",
@@ -275,7 +283,7 @@
                 "S1509508.GenderDims",
                 c => new
                     {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
                         Gender = c.String(maxLength: 2000),
                     })
                 .PrimaryKey(t => t.Id);
@@ -312,45 +320,24 @@
                 "S1509508.Graduations",
                 c => new
                     {
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
                         YearId = c.Decimal(nullable: false, precision: 10, scale: 0),
-                        UserId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        StudentId = c.Decimal(nullable: false, precision: 10, scale: 0),
                         CourseId = c.Decimal(nullable: false, precision: 10, scale: 0),
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
                     })
-                .PrimaryKey(t => new { t.YearId, t.UserId, t.CourseId })
+                .PrimaryKey(t => t.Id)
                 .ForeignKey("S1509508.Courses", t => t.CourseId, cascadeDelete: true)
-                .ForeignKey("S1509508.Users", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("S1509508.Students", t => t.StudentId, cascadeDelete: true)
                 .ForeignKey("S1509508.AcademicYears", t => t.YearId, cascadeDelete: true)
                 .Index(t => t.YearId)
-                .Index(t => t.UserId)
+                .Index(t => t.StudentId)
                 .Index(t => t.CourseId);
-            
-            CreateTable(
-                "S1509508.Users",
-                c => new
-                    {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
-                        Username = c.String(maxLength: 2000),
-                        Password = c.String(maxLength: 2000),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "S1509508.Permissions",
-                c => new
-                    {
-                        UserId = c.Decimal(nullable: false, precision: 10, scale: 0),
-                        PermissionType = c.Decimal(nullable: false, precision: 10, scale: 0),
-                    })
-                .PrimaryKey(t => new { t.UserId, t.PermissionType })
-                .ForeignKey("S1509508.Users", t => t.UserId, cascadeDelete: true)
-                .Index(t => t.UserId);
             
             CreateTable(
                 "S1509508.LecturerDims",
                 c => new
                     {
-                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0),
                         FirstName = c.String(maxLength: 2000),
                         LastName = c.String(maxLength: 2000),
                     })
@@ -383,6 +370,27 @@
                 .ForeignKey("S1509508.CourseDims", t => t.CourseDimId, cascadeDelete: true)
                 .Index(t => t.AcademicYearDimId)
                 .Index(t => t.CourseDimId);
+            
+            CreateTable(
+                "S1509508.Permissions",
+                c => new
+                    {
+                        UserId = c.Decimal(nullable: false, precision: 10, scale: 0),
+                        PermissionType = c.Decimal(nullable: false, precision: 10, scale: 0),
+                    })
+                .PrimaryKey(t => new { t.UserId, t.PermissionType })
+                .ForeignKey("S1509508.Users", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
+            
+            CreateTable(
+                "S1509508.Users",
+                c => new
+                    {
+                        Id = c.Decimal(nullable: false, precision: 10, scale: 0, identity: true),
+                        Username = c.String(maxLength: 2000),
+                        Password = c.String(maxLength: 2000),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "S1509508.ResultFacts",
@@ -424,13 +432,13 @@
             DropForeignKey("S1509508.ResultFacts", "ModuleDimId", "S1509508.ModuleDims");
             DropForeignKey("S1509508.ResultFacts", "ClassificationDimId", "S1509508.ClassificationDims");
             DropForeignKey("S1509508.ResultFacts", "AcademicYearDimId", "S1509508.AcademicYearDims");
+            DropForeignKey("S1509508.Permissions", "UserId", "S1509508.Users");
             DropForeignKey("S1509508.ModuleFacts", "CourseDimId", "S1509508.CourseDims");
             DropForeignKey("S1509508.ModuleFacts", "AcademicYearDimId", "S1509508.AcademicYearDims");
             DropForeignKey("S1509508.LecturerFacts", "LecturerDimId", "S1509508.LecturerDims");
             DropForeignKey("S1509508.LecturerFacts", "AcademicYearDimId", "S1509508.AcademicYearDims");
             DropForeignKey("S1509508.Graduations", "YearId", "S1509508.AcademicYears");
-            DropForeignKey("S1509508.Graduations", "UserId", "S1509508.Users");
-            DropForeignKey("S1509508.Permissions", "UserId", "S1509508.Users");
+            DropForeignKey("S1509508.Graduations", "StudentId", "S1509508.Students");
             DropForeignKey("S1509508.Graduations", "CourseId", "S1509508.Courses");
             DropForeignKey("S1509508.GraduationFacts", "CourseDimId", "S1509508.CourseDims");
             DropForeignKey("S1509508.GraduationFacts", "AcademicYearDimId", "S1509508.AcademicYearDims");
@@ -438,11 +446,13 @@
             DropForeignKey("S1509508.GenderFacts", "AcademicYearDimId", "S1509508.AcademicYearDims");
             DropForeignKey("S1509508.EnrollmentFacts", "ModuleDimId", "S1509508.ModuleDims");
             DropForeignKey("S1509508.EnrollmentFacts", "AcademicYearDimId", "S1509508.AcademicYearDims");
+            DropForeignKey("S1509508.CourseFacts", "CampusDimId", "S1509508.CampusDims");
+            DropForeignKey("S1509508.CourseFacts", "AcademicYearDimId", "S1509508.AcademicYearDims");
             DropForeignKey("S1509508.ComplaintFacts", "CourseDimId", "S1509508.CourseDims");
             DropForeignKey("S1509508.ComplaintFacts", "AcademicYearDimId", "S1509508.AcademicYearDims");
             DropForeignKey("S1509508.Results", "StudentId", "S1509508.Students");
             DropForeignKey("S1509508.Results", "AssignmentId", "S1509508.Assignments");
-            DropForeignKey("S1509508.ModuleRuns", "Id", "S1509508.AcademicYears");
+            DropForeignKey("S1509508.ModuleRuns", "AcademicYearId", "S1509508.AcademicYears");
             DropForeignKey("S1509508.ModuleRuns", "LecturerId", "S1509508.Lecturers");
             DropForeignKey("S1509508.Enrollments", "StudentId", "S1509508.Students");
             DropForeignKey("S1509508.Students", "CourseId", "S1509508.Courses");
@@ -453,8 +463,8 @@
             DropForeignKey("S1509508.Complaints", "AcademicYearId", "S1509508.AcademicYears");
             DropForeignKey("S1509508.Courses", "CampusId", "S1509508.Campus");
             DropForeignKey("S1509508.Students", "CountryId", "S1509508.Countries");
-            DropForeignKey("S1509508.Enrollments", new[] { "ModuleRun_AcademicYearId", "ModuleRun_ModuleId", "ModuleRun_LecturerId" }, "S1509508.ModuleRuns");
-            DropForeignKey("S1509508.Assignments", new[] { "ModuleRun_AcademicYearId", "ModuleRun_ModuleId", "ModuleRun_LecturerId" }, "S1509508.ModuleRuns");
+            DropForeignKey("S1509508.Enrollments", "ModuleRunId", "S1509508.ModuleRuns");
+            DropForeignKey("S1509508.Assignments", "ModuleRunId", "S1509508.ModuleRuns");
             DropForeignKey("S1509508.AssignmentFacts", "ModuleDimId", "S1509508.ModuleDims");
             DropForeignKey("S1509508.AssignmentFacts", "AcademicYearDimId", "S1509508.AcademicYearDims");
             DropIndex("S1509508.StudentFacts", new[] { "CountryDimId" });
@@ -462,13 +472,13 @@
             DropIndex("S1509508.ResultFacts", new[] { "ClassificationDimId" });
             DropIndex("S1509508.ResultFacts", new[] { "ModuleDimId" });
             DropIndex("S1509508.ResultFacts", new[] { "AcademicYearDimId" });
+            DropIndex("S1509508.Permissions", new[] { "UserId" });
             DropIndex("S1509508.ModuleFacts", new[] { "CourseDimId" });
             DropIndex("S1509508.ModuleFacts", new[] { "AcademicYearDimId" });
             DropIndex("S1509508.LecturerFacts", new[] { "LecturerDimId" });
             DropIndex("S1509508.LecturerFacts", new[] { "AcademicYearDimId" });
-            DropIndex("S1509508.Permissions", new[] { "UserId" });
             DropIndex("S1509508.Graduations", new[] { "CourseId" });
-            DropIndex("S1509508.Graduations", new[] { "UserId" });
+            DropIndex("S1509508.Graduations", new[] { "StudentId" });
             DropIndex("S1509508.Graduations", new[] { "YearId" });
             DropIndex("S1509508.GraduationFacts", new[] { "CourseDimId" });
             DropIndex("S1509508.GraduationFacts", new[] { "AcademicYearDimId" });
@@ -476,6 +486,8 @@
             DropIndex("S1509508.GenderFacts", new[] { "AcademicYearDimId" });
             DropIndex("S1509508.EnrollmentFacts", new[] { "ModuleDimId" });
             DropIndex("S1509508.EnrollmentFacts", new[] { "AcademicYearDimId" });
+            DropIndex("S1509508.CourseFacts", new[] { "CampusDimId" });
+            DropIndex("S1509508.CourseFacts", new[] { "AcademicYearDimId" });
             DropIndex("S1509508.ComplaintFacts", new[] { "CourseDimId" });
             DropIndex("S1509508.ComplaintFacts", new[] { "AcademicYearDimId" });
             DropIndex("S1509508.Results", new[] { "AssignmentId" });
@@ -487,26 +499,27 @@
             DropIndex("S1509508.Courses", new[] { "CampusId" });
             DropIndex("S1509508.Students", new[] { "CourseId" });
             DropIndex("S1509508.Students", new[] { "CountryId" });
-            DropIndex("S1509508.Enrollments", new[] { "ModuleRun_AcademicYearId", "ModuleRun_ModuleId", "ModuleRun_LecturerId" });
+            DropIndex("S1509508.Enrollments", new[] { "ModuleRunId" });
             DropIndex("S1509508.Enrollments", new[] { "StudentId" });
-            DropIndex("S1509508.ModuleRuns", new[] { "Id" });
             DropIndex("S1509508.ModuleRuns", new[] { "LecturerId" });
             DropIndex("S1509508.ModuleRuns", new[] { "ModuleId" });
-            DropIndex("S1509508.Assignments", new[] { "ModuleRun_AcademicYearId", "ModuleRun_ModuleId", "ModuleRun_LecturerId" });
+            DropIndex("S1509508.ModuleRuns", new[] { "AcademicYearId" });
+            DropIndex("S1509508.Assignments", new[] { "ModuleRunId" });
             DropIndex("S1509508.AssignmentFacts", new[] { "ModuleDimId" });
             DropIndex("S1509508.AssignmentFacts", new[] { "AcademicYearDimId" });
             DropTable("S1509508.StudentFacts");
             DropTable("S1509508.ResultFacts");
+            DropTable("S1509508.Users");
+            DropTable("S1509508.Permissions");
             DropTable("S1509508.ModuleFacts");
             DropTable("S1509508.LecturerFacts");
             DropTable("S1509508.LecturerDims");
-            DropTable("S1509508.Permissions");
-            DropTable("S1509508.Users");
             DropTable("S1509508.Graduations");
             DropTable("S1509508.GraduationFacts");
             DropTable("S1509508.GenderFacts");
             DropTable("S1509508.GenderDims");
             DropTable("S1509508.EnrollmentFacts");
+            DropTable("S1509508.CourseFacts");
             DropTable("S1509508.CountryDims");
             DropTable("S1509508.CourseDims");
             DropTable("S1509508.ComplaintFacts");

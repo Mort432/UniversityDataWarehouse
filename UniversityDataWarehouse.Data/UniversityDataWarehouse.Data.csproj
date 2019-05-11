@@ -110,9 +110,9 @@
         <Compile Include="Initializers\Seeds\ResultSeed.cs" />
         <Compile Include="Initializers\Seeds\StudentSeed.cs" />
         <Compile Include="Initializers\Seeds\UserSeed.cs" />
-        <Compile Include="Migrations\201905081804039_InitialCreate.cs" />
-        <Compile Include="Migrations\201905081804039_InitialCreate.Designer.cs">
-          <DependentUpon>201905081804039_InitialCreate.cs</DependentUpon>
+        <Compile Include="Migrations\201905111925378_InitCreate.cs" />
+        <Compile Include="Migrations\201905111925378_InitCreate.Designer.cs">
+          <DependentUpon>201905111925378_InitCreate.cs</DependentUpon>
         </Compile>
         <Compile Include="Migrations\Configuration.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
@@ -122,13 +122,13 @@
       <None Include="packages.config" />
     </ItemGroup>
     <ItemGroup>
-      <EmbeddedResource Include="Migrations\201905081804039_InitialCreate.resx">
-        <DependentUpon>201905081804039_InitialCreate.cs</DependentUpon>
-      </EmbeddedResource>
-    </ItemGroup>
-    <ItemGroup>
       <Content Include="build.sql" />
       <Content Include="etl.sql" />
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Include="Migrations\201905111925378_InitCreate.resx">
+        <DependentUpon>201905111925378_InitCreate.cs</DependentUpon>
+      </EmbeddedResource>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
