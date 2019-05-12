@@ -31,7 +31,7 @@ namespace UniversityDataWarehouse.Apps.Wpf.ViewModels
                 //Expression filter declaration
                 Expression<Func<ComplaintFact, bool>> expression = x => x.CourseDimId == _courseDim.Id;
 
-                Filters[typeof(ModuleDim)] = _courseDim == null
+                Filters[typeof(CourseDim)] = _courseDim == null
                     ? null
                     : expression;
                 

@@ -49,13 +49,17 @@
     <ItemGroup>
         <Compile Include="AuthService.cs" />
         <Compile Include="FactServices\AssignmentFactService.cs" />
+        <Compile Include="FactServices\CampusDimService.cs" />
         <Compile Include="FactServices\ComplaintFactService.cs" />
         <Compile Include="FactServices\CourseDimService.cs" />
+        <Compile Include="FactServices\CourseFactService.cs" />
         <Compile Include="FactServices\DimServiceBase.cs" />
         <Compile Include="FactServices\FactServiceBase.cs" />
         <Compile Include="FactServices\IAssignmentFactService.cs" />
+        <Compile Include="FactServices\ICampusDimService.cs" />
         <Compile Include="FactServices\IComplaintFactService.cs" />
         <Compile Include="FactServices\ICourseDimService.cs" />
+        <Compile Include="FactServices\ICourseFactService.cs" />
         <Compile Include="FactServices\IDimService.cs" />
         <Compile Include="FactServices\IFactService.cs" />
         <Compile Include="FactServices\IModuleDimService.cs" />
