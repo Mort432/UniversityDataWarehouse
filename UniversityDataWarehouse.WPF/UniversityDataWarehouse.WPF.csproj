@@ -108,13 +108,6 @@
         <Compile Include="Views\Login.xaml.cs">
           <DependentUpon>Login.xaml</DependentUpon>
         </Compile>
-        <Compile Include="ViewModels\FactCharts\AssignmentsViewModel.cs" />
-        <Compile Include="ViewModels\FactCharts\ChartViewModelBase.cs" />
-        <Compile Include="ViewModels\FactCharts\FactChartViewModelBase.cs" />
-        <Compile Include="ViewModels\FactCharts\IChartViewModel.cs" />
-        <Compile Include="ViewModels\FactCharts\IFactChartViewModel.cs" />
-        <Compile Include="ViewModels\FactCharts\IViewModel.cs" />
-        <Compile Include="ViewModels\FactCharts\ViewModelBase.cs" />
         <Compile Include="ViewModels\LoginViewModel.cs" />
         <Compile Include="ViewModels\MainPageViewModel.cs" />
         <Compile Include="ViewModels\MainWindowViewModel.cs" />

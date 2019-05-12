@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UniversityDataWarehouse.Data.Entities.Dimensional;
 using UniversityDataWarehouse.Services.FactServices;
 
-namespace UniversityDataWarehouse.WPF.ViewModels.FactCharts
+namespace UniversityDataWarehouse.Apps.WPF.ViewModels.FactCharts
 {
     public class AssignmentsViewModel : FactChartViewModelBase<AssignmentFact>
     {

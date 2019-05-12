@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using LiveCharts;
 
-namespace UniversityDataWarehouse.WPF.ViewModels.FactCharts
+namespace UniversityDataWarehouse.Apps.WPF.ViewModels.FactCharts
 {
     public abstract class ChartViewModelBase : ViewModelBase, IChartViewModel
     {

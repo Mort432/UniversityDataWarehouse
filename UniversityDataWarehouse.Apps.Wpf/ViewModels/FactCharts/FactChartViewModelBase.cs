@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 using LiveCharts;
 using LiveCharts.Helpers;
 using UniversityDataWarehouse.Extensions;
+using UniversityDataWarehouse.Apps.WPF.ViewModels.FactCharts;
 
-namespace UniversityDataWarehouse.WPF.ViewModels.FactCharts
+namespace UniversityDataWarehouse.Apps.WPF.ViewModels.FactCharts
 {
     public abstract class FactChartViewModelBase<TFact> : ChartViewModelBase, IFactChartViewModel where TFact : IFact
     {

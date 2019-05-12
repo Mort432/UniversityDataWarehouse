@@ -1,6 +1,6 @@
 using Prism.Mvvm;
 
-namespace UniversityDataWarehouse.WPF.ViewModels.FactCharts
+namespace UniversityDataWarehouse.Apps.WPF.ViewModels.FactCharts
 {
     public abstract class ViewModelBase : BindableBase, IViewModel
     {

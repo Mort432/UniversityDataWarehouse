@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace UniversityDataWarehouse.WPF.ViewModels.FactCharts
+namespace UniversityDataWarehouse.Apps.WPF.ViewModels.FactCharts
 {
     public interface IViewModel : INotifyPropertyChanged
     {
