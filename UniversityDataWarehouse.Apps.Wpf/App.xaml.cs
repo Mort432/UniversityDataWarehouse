@@ -33,6 +33,7 @@ namespace UniversityDataWarehouse.Apps.Wpf
             moduleCatalog.AddModule<LoginModule>();
             moduleCatalog.AddModule<MainModule>();
             moduleCatalog.AddModule<AssignmentsModule>();
+            moduleCatalog.AddModule<ComplaintsModule>();
         }
     }
 }
