@@ -65,6 +65,7 @@
         <Compile Include="Modules\HomeModule.cs" />
         <Compile Include="Modules\MainModule.cs" />
         <Compile Include="Modules\ModuleModule.cs" />
+        <Compile Include="Modules\ResultModule.cs" />
         <Compile Include="ViewModels\AssignmentsViewModel.cs" />
         <Compile Include="ViewModels\ChartViewModelBase.cs" />
         <Compile Include="ViewModels\ComplaintsViewModel.cs" />
@@ -82,6 +83,7 @@
         <Compile Include="ViewModels\MainViewModel.cs" />
         <Compile Include="ViewModels\MainWindowViewModel.cs" />
         <Compile Include="ViewModels\ModulesViewModel.cs" />
+        <Compile Include="ViewModels\ResultsViewModule.cs" />
         <Compile Include="ViewModels\ViewModelBase.cs" />
         <Compile Include="Views\AssignmentsView.xaml.cs">
           <DependentUpon>AssignmentsView.xaml</DependentUpon>
@@ -120,6 +122,9 @@
         <Compile Include="Views\ModulesView.xaml.cs">
           <DependentUpon>ModulesView.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Views\ResultsView.xaml.cs">
+          <DependentUpon>ResultsView.xaml</DependentUpon>
+        </Compile>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Properties\AssemblyInfo.cs">
@@ -154,6 +159,7 @@
         <SubType>Designer</SubType>
       </Page>
       <Page Include="Views\ModulesView.xaml" />
+      <Page Include="Views\ResultsView.xaml" />
     </ItemGroup>
     <ItemGroup>
       <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />

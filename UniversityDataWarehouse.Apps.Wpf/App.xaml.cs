@@ -3,6 +3,7 @@ using Prism.Ioc;
 using Prism.Modularity;
 using UniversityDataWarehouse.Apps.Wpf.Modules;
 using UniversityDataWarehouse.Apps.Wpf.Views;
+using UniversityDataWarehouse.Data.Entities.Dimensional;
 using UniversityDataWarehouse.Services;
 using UniversityDataWarehouse.Services.FactServices;
 
@@ -29,6 +30,8 @@ namespace UniversityDataWarehouse.Apps.Wpf
             containerRegistry.RegisterSingleton<ILecturerFactService, LecturerFactService>();
             containerRegistry.RegisterSingleton<ILecturerDimService, LecturerDimService>();
             containerRegistry.RegisterSingleton<IModuleFactService, ModuleFactService>();
+            containerRegistry.RegisterSingleton<IResultFactService, ResultFactService>();
+            containerRegistry.RegisterSingleton<IClassificationDimService, ClassificationDimService>();
         }
 
         protected override Window CreateShell()
@@ -49,6 +52,7 @@ namespace UniversityDataWarehouse.Apps.Wpf
             moduleCatalog.AddModule<GraduationsModule>();
             moduleCatalog.AddModule<LecturersModule>();
             moduleCatalog.AddModule<ModuleModule>();
+            moduleCatalog.AddModule<ResultModule>();
         }
     }
 }
