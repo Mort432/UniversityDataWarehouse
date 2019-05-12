@@ -52,6 +52,7 @@
         <Compile Include="FactServices\CampusDimService.cs" />
         <Compile Include="FactServices\ClassificationDimService.cs" />
         <Compile Include="FactServices\ComplaintFactService.cs" />
+        <Compile Include="FactServices\CountryDimService.cs" />
         <Compile Include="FactServices\CourseDimService.cs" />
         <Compile Include="FactServices\CourseFactService.cs" />
         <Compile Include="FactServices\DimServiceBase.cs" />
@@ -64,6 +65,7 @@
         <Compile Include="FactServices\ICampusDimService.cs" />
         <Compile Include="FactServices\IClassificationDimService.cs" />
         <Compile Include="FactServices\IComplaintFactService.cs" />
+        <Compile Include="FactServices\ICountryDimService.cs" />
         <Compile Include="FactServices\ICourseDimService.cs" />
         <Compile Include="FactServices\ICourseFactService.cs" />
         <Compile Include="FactServices\IDimService.cs" />
@@ -78,12 +80,14 @@
         <Compile Include="FactServices\IModuleFactService.cs" />
         <Compile Include="FactServices\IResultFactService.cs" />
         <Compile Include="FactServices\IService.cs" />
+        <Compile Include="FactServices\IStudentFactService.cs" />
         <Compile Include="FactServices\LecturerDimService.cs" />
         <Compile Include="FactServices\LecturerFactService.cs" />
         <Compile Include="FactServices\ModuleDimService.cs" />
         <Compile Include="FactServices\ModuleFactService.cs" />
         <Compile Include="FactServices\ResultFactService.cs" />
         <Compile Include="FactServices\ServiceBase.cs" />
+        <Compile Include="FactServices\StudentFactService.cs" />
         <Compile Include="IAuthService.cs" />
         <Compile Include="ISeedService.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

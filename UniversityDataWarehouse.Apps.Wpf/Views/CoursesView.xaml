@@ -26,7 +26,7 @@
                         Text="Filters" />
 
                     <Label
-                        Content="Module"
+                        Content="Campus"
                         Margin="0,24,0,0" />
 
                     <ComboBox
