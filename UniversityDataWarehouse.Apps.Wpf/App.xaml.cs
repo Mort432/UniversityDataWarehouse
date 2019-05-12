@@ -23,6 +23,8 @@ namespace UniversityDataWarehouse.Apps.Wpf
             containerRegistry.RegisterSingleton<ICourseFactService, CourseFactService>();
             containerRegistry.RegisterSingleton<ICampusDimService, CampusDimService>();
             containerRegistry.RegisterSingleton<IEnrollmentFactService, EnrollmentFactService>();
+            containerRegistry.RegisterSingleton<IGenderFactService, GenderFactService>();
+            containerRegistry.RegisterSingleton<IGenderDimService, GenderDimService>();
         }
 
         protected override Window CreateShell()
@@ -39,6 +41,7 @@ namespace UniversityDataWarehouse.Apps.Wpf
             moduleCatalog.AddModule<ComplaintsModule>();
             moduleCatalog.AddModule<CourseModule>();
             moduleCatalog.AddModule<EnrollmentModule>();
+            moduleCatalog.AddModule<GendersModule>();
         }
     }
 }
