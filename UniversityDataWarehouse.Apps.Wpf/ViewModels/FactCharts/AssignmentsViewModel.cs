@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
+using Prism.Regions;
 using UniversityDataWarehouse.Data.Entities.Dimensional;
 using UniversityDataWarehouse.Services.FactServices;
 
@@ -42,6 +44,20 @@ namespace UniversityDataWarehouse.Apps.WPF.ViewModels.FactCharts
         {
             get => _moduleDims;
             private set => SetProperty(ref _moduleDims, value);
+        }
+
+        public override void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+            base.OnNavigatedFrom(navigationContext);
+
+            ModuleDim = null;
+        }
+
+        public override void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            base.OnNavigatedTo(navigationContext);
+
+            ModuleDims = _moduleDimService.GetAsync().Result;
         }
     }
 }

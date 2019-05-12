@@ -129,29 +129,29 @@ BEGIN
 
   IF noOfClassifications = 0 THEN
     INSERT INTO "ClassificationDims"
-    ("Classification")
+    ("Id", "Classification")
     VALUES
-    ('U');
+    (1, 'U');
 
     INSERT INTO "ClassificationDims"
-    ("Classification")
+    ("Id", "Classification")
     VALUES
-    ('3');
+    (2, '3');
 
     INSERT INTO "ClassificationDims"
-    ("Classification")
+    ("Id", "Classification")
     VALUES
-    ('2.2');
+    (3, '2.2');
 
     INSERT INTO "ClassificationDims"
-    ("Classification")
+    ("Id", "Classification")
     VALUES
-    ('2.1');
+    (4, '2.1');
 
     INSERT INTO "ClassificationDims"
-    ("Classification")
+    ("Id", "Classification")
     VALUES
-    ('1');
+    (5, '1');
   END IF;
 END;
   
@@ -180,19 +180,19 @@ BEGIN
     
   IF noOfGenders = 0 THEN
     INSERT INTO "GenderDims"
-    ("Gender")
+    ("Id", "Gender")
     VALUES
-    ('Male');
+    (1, 'Male');
 
     INSERT INTO "GenderDims"
-    ("Gender")
+    ("Id", "Gender")
     VALUES
-    ('Female');
+    (2, 'Female');
   
     INSERT INTO "GenderDims"
-    ("Gender")
+    ("Id", "Gender")
     VALUES
-    ('Prefer not to say');
+    (3, 'Prefer not to say');
   END IF;
 end;
   

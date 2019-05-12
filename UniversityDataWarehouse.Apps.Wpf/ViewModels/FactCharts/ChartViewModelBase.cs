@@ -1,5 +1,7 @@
 using System.Threading.Tasks;
+using ImTools;
 using LiveCharts;
+using Prism.Regions;
 
 namespace UniversityDataWarehouse.Apps.WPF.ViewModels.FactCharts
 {
@@ -16,6 +18,13 @@ namespace UniversityDataWarehouse.Apps.WPF.ViewModels.FactCharts
         protected void UpdateSeriesCollection()
         {
             SeriesCollection = GetSeriesCollection().Result;
+        }
+
+        public override void OnNavigatedTo(NavigationContext navigationContext)
+        {
+            base.OnNavigatedTo(navigationContext);
+            
+            UpdateSeriesCollection();
         }
 
         protected abstract Task<SeriesCollection> GetSeriesCollection();

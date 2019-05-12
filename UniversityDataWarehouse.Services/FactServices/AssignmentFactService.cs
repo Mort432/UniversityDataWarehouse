@@ -14,7 +14,8 @@ namespace UniversityDataWarehouse.Services.FactServices
 
         protected override IQueryable<AssignmentFact> GetQueryable(OracleContext context)
         {
-            return base.GetQueryable(context) //TODO - Ensure we don't need to manually include the module dim.
+            return base.GetQueryable(context)
+                .Include(fact => fact.ModuleDim)
                 .OrderBy(fact => fact.AcademicYearDimId)
                 .ThenBy(fact => fact.ModuleDimId);
         }
