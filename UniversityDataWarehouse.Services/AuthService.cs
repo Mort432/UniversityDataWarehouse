@@ -1,6 +1,7 @@
 using System.Linq;
 using UniversityDataWarehouse.Data.Contexts;
 using UniversityDataWarehouse.Data.Entities;
+using static BCrypt.Net.BCrypt;
 
 namespace UniversityDataWarehouse.Services
 {
@@ -10,11 +11,10 @@ namespace UniversityDataWarehouse.Services
 
         public bool Login(User user)
         {
-            //TODO: Secure login logic
             using (var context = new OracleContext())
             {
                 var selectedUser = context.Users.SingleOrDefault(x => x.Username == user.Username);
-                if (selectedUser != null && selectedUser.Password == user.Password)
+                if (selectedUser != null && Verify(user.Password, selectedUser.Password))
                 {
                     AuthorizedUser = user;
                     return true;
