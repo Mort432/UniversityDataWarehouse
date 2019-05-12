@@ -58,6 +58,7 @@
         <Compile Include="FactServices\FactServiceBase.cs" />
         <Compile Include="FactServices\GenderDimService.cs" />
         <Compile Include="FactServices\GenderFactService.cs" />
+        <Compile Include="FactServices\GraduationFactService.cs" />
         <Compile Include="FactServices\IAssignmentFactService.cs" />
         <Compile Include="FactServices\ICampusDimService.cs" />
         <Compile Include="FactServices\IComplaintFactService.cs" />
@@ -68,6 +69,7 @@
         <Compile Include="FactServices\IFactService.cs" />
         <Compile Include="FactServices\IGenderDimService.cs" />
         <Compile Include="FactServices\IGenderFactService.cs" />
+        <Compile Include="FactServices\IGraduationFactService.cs" />
         <Compile Include="FactServices\IModuleDimService.cs" />
         <Compile Include="FactServices\IService.cs" />
         <Compile Include="FactServices\ModuleDimService.cs" />

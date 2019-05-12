@@ -1,4 +1,4 @@
-<UserControl x:Class="UniversityDataWarehouse.Apps.Wpf.Views.GendersView"
+<UserControl x:Class="UniversityDataWarehouse.Apps.Wpf.Views.GraduationsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -8,7 +8,7 @@
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:prism="http://prismlibrary.com/"
              xmlns:viewModels="clr-namespace:UniversityDataWarehouse.Apps.Wpf.ViewModels"
-             d:DataContext="{d:DesignInstance viewModels:GendersViewModel}"
+             d:DataContext="{d:DesignInstance viewModels:GraduationsViewModel}"
              prism:ViewModelLocator.AutoWireViewModel="True"
              
              mc:Ignorable="d"
@@ -31,8 +31,8 @@
 
                     <ComboBox
                         mah:TextBoxHelper.ClearTextButton="True"
-                        ItemsSource="{Binding GenderDims, Mode=OneWay}"
-                        SelectedItem="{Binding GenderDim, Mode=TwoWay}" />
+                        ItemsSource="{Binding CourseDims, Mode=OneWay}"
+                        SelectedItem="{Binding CourseDim, Mode=TwoWay}" />
                 </StackPanel>
             </ScrollViewer>
         </mah:SplitView.Pane>
@@ -43,7 +43,7 @@
                 Series="{Binding SeriesCollection, Mode=OneWay}">
 
                 <liveCharts:CartesianChart.AxisY>
-                    <liveCharts:Axis Title="No Of Students" />
+                    <liveCharts:Axis Title="No Of Graduations" />
                 </liveCharts:CartesianChart.AxisY>
 
                 <liveCharts:CartesianChart.AxisX>

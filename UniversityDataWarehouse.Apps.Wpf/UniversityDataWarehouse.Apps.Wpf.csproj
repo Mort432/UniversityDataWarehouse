@@ -59,6 +59,7 @@
         <Compile Include="Modules\CourseModule.cs" />
         <Compile Include="Modules\EnrollmentModule.cs" />
         <Compile Include="Modules\GendersModule.cs" />
+        <Compile Include="Modules\GraduationsModule.cs" />
         <Compile Include="Modules\LoginModule.cs" />
         <Compile Include="Modules\HomeModule.cs" />
         <Compile Include="Modules\MainModule.cs" />
@@ -69,6 +70,7 @@
         <Compile Include="ViewModels\EnrollmentsViewModel.cs" />
         <Compile Include="ViewModels\FactChartViewModelBase.cs" />
         <Compile Include="ViewModels\GendersViewModel.cs" />
+        <Compile Include="ViewModels\GraduationsViewModel.cs" />
         <Compile Include="ViewModels\HomeViewModel.cs" />
         <Compile Include="ViewModels\IChartViewModel.cs" />
         <Compile Include="ViewModels\IFactChartViewModel.cs" />
@@ -91,6 +93,9 @@
         </Compile>
         <Compile Include="Views\GendersView.xaml.cs">
           <DependentUpon>GendersView.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\GraduationsView.xaml.cs">
+          <DependentUpon>GraduationsView.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\HomeView.xaml.cs">
           <DependentUpon>HomeView.xaml</DependentUpon>
@@ -129,6 +134,7 @@
       <Page Include="Views\CoursesView.xaml" />
       <Page Include="Views\EnrollmentsView.xaml" />
       <Page Include="Views\GendersView.xaml" />
+      <Page Include="Views\GraduationsView.xaml" />
       <Page Include="Views\HomeView.xaml" />
       <Page Include="Views\LoginView.xaml" />
       <Page Include="Views\MainView.xaml" />
