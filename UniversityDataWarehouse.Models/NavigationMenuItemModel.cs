@@ -4,11 +4,20 @@ namespace UniversityDataWarehouse.Models
 {
     public class NavigationMenuItemModel
     {
-        public string Content { get; set; }
-        public string Glyph { get; set; }
-        public Type ViewType { get; set; }
-        public bool IsEnabled { get; set; } = true;
+        public NavigationMenuItemModel(string title, string icon, string view)
+        {
+            Title = title;
+            Icon = icon;
+            View = view;
+        }
+        
+        public string Title { get; set; }
+        public string Icon { get; set; }
+        public string View { get; set; }
 
-        public override string ToString() => Content;
+        public override string ToString()
+        {
+            return Title;
+        }
     }
 }

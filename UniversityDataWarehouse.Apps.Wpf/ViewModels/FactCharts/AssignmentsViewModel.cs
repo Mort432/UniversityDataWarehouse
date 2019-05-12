@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UniversityDataWarehouse.Data.Entities.Dimensional;
 using UniversityDataWarehouse.Services.FactServices;
 
@@ -24,7 +26,22 @@ namespace UniversityDataWarehouse.Apps.WPF.ViewModels.FactCharts
             set
             {
                 if (!SetProperty(ref _moduleDim, value)) return;
+                
+                //Expression filter declaration
+                Expression<Func<AssignmentFact, bool>> expression = x => x.ModuleDimId == _moduleDim.Id;
+
+                Filters[typeof(ModuleDim)] = _moduleDim == null
+                    ? null
+                    : expression;
+                
+                UpdateSeriesCollection();
             }
+        }
+
+        public IEnumerable<ModuleDim> ModuleDims
+        {
+            get => _moduleDims;
+            private set => SetProperty(ref _moduleDims, value);
         }
     }
 }
