@@ -48,6 +48,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="AuthService.cs" />
+        <Compile Include="Expressions\ReplaceExpressionVisitor.cs" />
         <Compile Include="FactServices\AssignmentFactService.cs" />
         <Compile Include="FactServices\CampusDimService.cs" />
         <Compile Include="FactServices\ClassificationDimService.cs" />

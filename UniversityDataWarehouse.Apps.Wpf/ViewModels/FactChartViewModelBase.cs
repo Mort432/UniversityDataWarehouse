@@ -7,6 +7,7 @@ using LiveCharts;
 using LiveCharts.Helpers;
 using UniversityDataWarehouse.Data.Entities.Dimensional;
 using UniversityDataWarehouse.Extensions;
+using UniversityDataWarehouse.Services.Expressions;
 using UniversityDataWarehouse.Services.FactServices;
 
 namespace UniversityDataWarehouse.Apps.Wpf.ViewModels
@@ -37,12 +38,28 @@ namespace UniversityDataWarehouse.Apps.Wpf.ViewModels
                     facts = await _factService.GetAsync(filters.Single());
                     break;
                 default:
-                    var parameterExpression = Expression.Parameter(typeof(TFact));
-                    facts = await _factService.GetAsync(filters.Aggregate((x, y) => Expression.Lambda<Func<TFact, bool>>(Expression.AndAlso(x, y), parameterExpression)));
+                    //This will absolutely break if we ever create a view with more than 2 filters.
+                    facts = await _factService.GetAsync(CombineFilters(filters));
                     break;
             }
 
             return facts.AsObservablePoints().AsChartValues().AsColumnSeries().AsSeriesCollection();
+        }
+
+        private Expression<Func<TFact, bool>> CombineFilters(List<Expression<Func<TFact, bool>>> filters)
+        {
+            ParameterExpression parameterExpression = Expression.Parameter(typeof(TFact));
+            var leftExpression = filters[0];
+            var rightExpression = filters[1];
+
+            var leftVisitor = new ReplaceExpressionVisitor(leftExpression.Parameters[0], parameterExpression);
+            var newLeftExpression = leftVisitor.Visit(leftExpression.Body);
+            
+            var rightVisitor = new ReplaceExpressionVisitor(rightExpression.Parameters[0], parameterExpression);
+            var newRightExpression = rightVisitor.Visit(rightExpression.Body);
+
+            return Expression.Lambda<Func<TFact, bool>>(Expression.AndAlso(newLeftExpression, newRightExpression),
+                parameterExpression);
         }
     }
 }

@@ -20,14 +20,14 @@ namespace UniversityDataWarehouse.Apps.Wpf.ViewModels
                 new NavigationMenuItemModel("Home", "Home", "HomeView"),
                 // Fact views
                 new NavigationMenuItemModel("Assignments", "File", "AssignmentsView"),
-                new NavigationMenuItemModel("Complaints", "Emoticon-Sad-Outline", "ComplaintsView"),
+                new NavigationMenuItemModel("Complaints", "EmoticonSadOutline", "ComplaintsView"),
                 new NavigationMenuItemModel("Courses", "Golf", "CoursesView"),
-                new NavigationMenuItemModel("Enrollments", "Clipboard-Account-Outline", "EnrollmentsView"),
-                new NavigationMenuItemModel("Genders", "Gender-Transgender", "GendersView"),
+                new NavigationMenuItemModel("Enrollments", "ClipboardAccountOutline", "EnrollmentsView"),
+                new NavigationMenuItemModel("Genders", "GenderTransgender", "GendersView"),
                 new NavigationMenuItemModel("Graduations", "School", "GraduationsView"),
                 new NavigationMenuItemModel("Lecturers", "Teach", "LecturersView"),
-                new NavigationMenuItemModel("Modules", "View-Module", "ModulesView"),
-                new NavigationMenuItemModel("Results", "Check-Circle-Outline", "ResultsView"),
+                new NavigationMenuItemModel("Modules", "ViewModule", "ModulesView"),
+                new NavigationMenuItemModel("Results", "CheckCircleOutline", "ResultsView"),
                 new NavigationMenuItemModel("Students", "Earth", "StudentsView")
             };
 
