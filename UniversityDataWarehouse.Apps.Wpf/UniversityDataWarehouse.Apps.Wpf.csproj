@@ -57,6 +57,7 @@
         <Compile Include="Modules\AssignmentsModule.cs" />
         <Compile Include="Modules\LoginModule.cs" />
         <Compile Include="Modules\HomeModule.cs" />
+        <Compile Include="Modules\MainModule.cs" />
         <Compile Include="ViewModels\FactCharts\AssignmentsViewModel.cs" />
         <Compile Include="ViewModels\FactCharts\ChartViewModelBase.cs" />
         <Compile Include="ViewModels\FactCharts\FactChartViewModelBase.cs" />

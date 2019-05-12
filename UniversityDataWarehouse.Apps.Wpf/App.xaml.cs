@@ -4,6 +4,7 @@ using Prism.Modularity;
 using UniversityDataWarehouse.Apps.Wpf.Modules;
 using UniversityDataWarehouse.Apps.Wpf.Views;
 using UniversityDataWarehouse.Services;
+using UniversityDataWarehouse.Services.FactServices;
 
 namespace UniversityDataWarehouse.Apps.Wpf
 {
@@ -13,6 +14,10 @@ namespace UniversityDataWarehouse.Apps.Wpf
         {
             containerRegistry.RegisterSingleton<IAuthService, AuthService>();
             containerRegistry.RegisterSingleton<ISeedService, SeedService>();
+            
+            //Dim handling
+            containerRegistry.RegisterSingleton<IAssignmentFactService, AssignmentFactService>();
+            containerRegistry.RegisterSingleton<IModuleDimService, ModuleDimService>();
         }
 
         protected override Window CreateShell()
@@ -24,6 +29,8 @@ namespace UniversityDataWarehouse.Apps.Wpf
         {
             moduleCatalog.AddModule<HomeModule>();
             moduleCatalog.AddModule<LoginModule>();
+            moduleCatalog.AddModule<MainModule>();
+            moduleCatalog.AddModule<AssignmentsModule>();
         }
     }
 }

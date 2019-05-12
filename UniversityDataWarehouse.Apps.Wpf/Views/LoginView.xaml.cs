@@ -22,7 +22,7 @@ namespace UniversityDataWarehouse.Apps.Wpf.Views
 
             var loginSuccess = ((LoginViewModel) DataContext).Login(user);
 
-            if (loginSuccess) RegionManager.RequestNavigate("ContentRegion", "HomeView");
+            if (loginSuccess) RegionManager.RequestNavigate("ContentRegion", "MainView");
         }
     }
 }

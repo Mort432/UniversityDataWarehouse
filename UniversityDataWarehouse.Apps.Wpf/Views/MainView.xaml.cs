@@ -7,6 +7,8 @@ namespace UniversityDataWarehouse.Apps.Wpf.Views
     {
         public MainView(IRegionManager regionManager)
         {
+            InitializeComponent();
+            
             RegionManager.SetRegionName(MainRegion, "MainRegion");
             RegionManager.SetRegionManager(MainRegion, regionManager);
         }
