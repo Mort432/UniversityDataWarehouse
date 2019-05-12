@@ -70,8 +70,12 @@
         <Compile Include="FactServices\IGenderDimService.cs" />
         <Compile Include="FactServices\IGenderFactService.cs" />
         <Compile Include="FactServices\IGraduationFactService.cs" />
+        <Compile Include="FactServices\ILecturerDimService.cs" />
+        <Compile Include="FactServices\ILecturerFactService.cs" />
         <Compile Include="FactServices\IModuleDimService.cs" />
         <Compile Include="FactServices\IService.cs" />
+        <Compile Include="FactServices\LecturerDimService.cs" />
+        <Compile Include="FactServices\LecturerFactService.cs" />
         <Compile Include="FactServices\ModuleDimService.cs" />
         <Compile Include="FactServices\ServiceBase.cs" />
         <Compile Include="IAuthService.cs" />
