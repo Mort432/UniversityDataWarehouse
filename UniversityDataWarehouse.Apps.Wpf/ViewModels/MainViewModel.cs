@@ -18,7 +18,17 @@ namespace UniversityDataWarehouse.Apps.Wpf.ViewModels
             MenuItems = new ObservableCollection<NavigationMenuItemModel>
             {
                 new NavigationMenuItemModel("Home", "Home", "HomeView"),
-                new NavigationMenuItemModel("Assignments", "File", "AssignmentsView")
+                // Fact views
+                new NavigationMenuItemModel("Assignments", "File", "AssignmentsView"),
+                new NavigationMenuItemModel("Complaints", "Emoticon-Sad-Outline", "ComplaintsView"),
+                new NavigationMenuItemModel("Courses", "Golf", "CoursesView"),
+                new NavigationMenuItemModel("Enrollments", "Clipboard-Account-Outline", "EnrollmentsView"),
+                new NavigationMenuItemModel("Genders", "Gender-Transgender", "GendersView"),
+                new NavigationMenuItemModel("Graduations", "School", "GraduationsView"),
+                new NavigationMenuItemModel("Lecturers", "Teach", "LecturersView"),
+                new NavigationMenuItemModel("Modules", "View-Module", "ModulesView"),
+                new NavigationMenuItemModel("Results", "Check-Circle-Outline", "ResultsView"),
+                new NavigationMenuItemModel("Students", "Earth", "StudentsView")
             };
 
             SelectedItem = MenuItems.First();
