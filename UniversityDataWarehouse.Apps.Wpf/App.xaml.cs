@@ -18,6 +18,8 @@ namespace UniversityDataWarehouse.Apps.Wpf
             //Dim handling
             containerRegistry.RegisterSingleton<IAssignmentFactService, AssignmentFactService>();
             containerRegistry.RegisterSingleton<IModuleDimService, ModuleDimService>();
+            containerRegistry.RegisterSingleton<IComplaintFactService, ComplaintFactService>();
+            containerRegistry.RegisterSingleton<ICourseDimService, CourseDimService>();
         }
 
         protected override Window CreateShell()
