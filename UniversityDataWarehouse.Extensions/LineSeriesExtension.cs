@@ -7,7 +7,7 @@ namespace UniversityDataWarehouse.Extensions
     {
         public static SeriesCollection AsSeriesCollection(this ISeriesView series)
         {
-            return new SeriesCollection(series);
+            return new SeriesCollection{series};
         }
     }
 }

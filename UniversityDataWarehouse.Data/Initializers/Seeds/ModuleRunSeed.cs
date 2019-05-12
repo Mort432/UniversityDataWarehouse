@@ -161,19 +161,19 @@ namespace UniversityDataWarehouse.Data.Initializers.Seeds
         public static ModuleRun EMHRun1 { get; } = new ModuleRun()
         {
             AcademicYearId = AcademicYearSeed.AcademicYear2017.Id,
-            ModuleId = ModuleSeed.RespiratoryHealthModule.Id,
+            ModuleId = ModuleSeed.ExerciseAndMentalHealthModule.Id,
             LecturerId = LecturerSeed.CallieMcClure.Id
         };
         public static ModuleRun EMHRun2 { get; } = new ModuleRun()
         {
             AcademicYearId = AcademicYearSeed.AcademicYear2018.Id,
-            ModuleId = ModuleSeed.RespiratoryHealthModule.Id,
+            ModuleId = ModuleSeed.ExerciseAndMentalHealthModule.Id,
             LecturerId = LecturerSeed.CallieMcClure.Id
         };
         public static ModuleRun EMHRun3 { get; } = new ModuleRun()
         {
             AcademicYearId = AcademicYearSeed.AcademicYear2019.Id,
-            ModuleId = ModuleSeed.RespiratoryHealthModule.Id,
+            ModuleId = ModuleSeed.ExerciseAndMentalHealthModule.Id,
             LecturerId = LecturerSeed.NoahDoyle.Id
         };
         #endregion
