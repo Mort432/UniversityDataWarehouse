@@ -7,7 +7,7 @@
              xmlns:liveCharts="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:prism="http://prismlibrary.com/"
-             xmlns:viewModels="clr-namespace:UniversityDataWarehouse.Apps.WPF.ViewModels.FactCharts"
+             xmlns:viewModels="clr-namespace:UniversityDataWarehouse.Apps.Wpf.ViewModels"
              d:DataContext="{d:DesignInstance viewModels:AssignmentsViewModel}"
              prism:ViewModelLocator.AutoWireViewModel="True"
              

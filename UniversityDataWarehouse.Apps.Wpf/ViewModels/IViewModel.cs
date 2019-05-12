@@ -1,8 +1,7 @@
 using System.ComponentModel;
-using System.Windows.Controls;
 using Prism.Regions;
 
-namespace UniversityDataWarehouse.Apps.WPF.ViewModels.FactCharts
+namespace UniversityDataWarehouse.Apps.Wpf.ViewModels
 {
     public interface IViewModel : INavigationAware, INotifyPropertyChanged
     {

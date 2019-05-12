@@ -1,4 +1,4 @@
-namespace UniversityDataWarehouse.Apps.WPF.ViewModels.FactCharts
+namespace UniversityDataWarehouse.Apps.Wpf.ViewModels
 {
     public interface IFactChartViewModel : IChartViewModel
     {
