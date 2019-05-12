@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 using Prism.Regions;
 using UniversityDataWarehouse.Data.Entities.Dimensional;
 using UniversityDataWarehouse.Services.FactServices;
 
-namespace UniversityDataWarehouse.Apps.WPF.ViewModels.FactCharts
+namespace UniversityDataWarehouse.Apps.Wpf.ViewModels
 {
     public class AssignmentsViewModel : FactChartViewModelBase<AssignmentFact>
     {

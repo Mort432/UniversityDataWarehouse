@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using MahApps.Metro.Controls;
 using Prism.Regions;
-using UniversityDataWarehouse.Apps.WPF.ViewModels.FactCharts;
 using UniversityDataWarehouse.Models;
 
 namespace UniversityDataWarehouse.Apps.Wpf.ViewModels

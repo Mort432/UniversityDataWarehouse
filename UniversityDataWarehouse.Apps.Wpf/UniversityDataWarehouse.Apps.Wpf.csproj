@@ -58,17 +58,17 @@
         <Compile Include="Modules\LoginModule.cs" />
         <Compile Include="Modules\HomeModule.cs" />
         <Compile Include="Modules\MainModule.cs" />
-        <Compile Include="ViewModels\FactCharts\AssignmentsViewModel.cs" />
-        <Compile Include="ViewModels\FactCharts\ChartViewModelBase.cs" />
-        <Compile Include="ViewModels\FactCharts\FactChartViewModelBase.cs" />
-        <Compile Include="ViewModels\FactCharts\IChartViewModel.cs" />
-        <Compile Include="ViewModels\FactCharts\IFactChartViewModel.cs" />
-        <Compile Include="ViewModels\FactCharts\IViewModel.cs" />
-        <Compile Include="ViewModels\FactCharts\ViewModelBase.cs" />
+        <Compile Include="ViewModels\AssignmentsViewModel.cs" />
+        <Compile Include="ViewModels\ChartViewModelBase.cs" />
+        <Compile Include="ViewModels\FactChartViewModelBase.cs" />
         <Compile Include="ViewModels\HomeViewModel.cs" />
+        <Compile Include="ViewModels\IChartViewModel.cs" />
+        <Compile Include="ViewModels\IFactChartViewModel.cs" />
+        <Compile Include="ViewModels\IViewModel.cs" />
         <Compile Include="ViewModels\LoginViewModel.cs" />
         <Compile Include="ViewModels\MainViewModel.cs" />
         <Compile Include="ViewModels\MainWindowViewModel.cs" />
+        <Compile Include="ViewModels\ViewModelBase.cs" />
         <Compile Include="Views\AssignmentsView.xaml.cs">
           <DependentUpon>AssignmentsView.xaml</DependentUpon>
         </Compile>

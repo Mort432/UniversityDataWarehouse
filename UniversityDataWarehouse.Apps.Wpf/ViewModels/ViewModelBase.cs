@@ -1,7 +1,7 @@
 using Prism.Mvvm;
 using Prism.Regions;
 
-namespace UniversityDataWarehouse.Apps.WPF.ViewModels.FactCharts
+namespace UniversityDataWarehouse.Apps.Wpf.ViewModels
 {
     public abstract class ViewModelBase : BindableBase, IViewModel
     {
