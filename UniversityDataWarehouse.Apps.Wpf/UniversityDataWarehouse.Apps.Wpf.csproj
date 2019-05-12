@@ -57,6 +57,7 @@
         <Compile Include="Modules\AssignmentsModule.cs" />
         <Compile Include="Modules\ComplaintsModule.cs" />
         <Compile Include="Modules\CourseModule.cs" />
+        <Compile Include="Modules\EnrollmentModule.cs" />
         <Compile Include="Modules\LoginModule.cs" />
         <Compile Include="Modules\HomeModule.cs" />
         <Compile Include="Modules\MainModule.cs" />
@@ -64,6 +65,7 @@
         <Compile Include="ViewModels\ChartViewModelBase.cs" />
         <Compile Include="ViewModels\ComplaintsViewModel.cs" />
         <Compile Include="ViewModels\CoursesViewModel.cs" />
+        <Compile Include="ViewModels\EnrollmentsViewModel.cs" />
         <Compile Include="ViewModels\FactChartViewModelBase.cs" />
         <Compile Include="ViewModels\HomeViewModel.cs" />
         <Compile Include="ViewModels\IChartViewModel.cs" />
@@ -81,6 +83,9 @@
         </Compile>
         <Compile Include="Views\CoursesView.xaml.cs">
           <DependentUpon>CoursesView.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Views\EnrollmentsView.xaml.cs">
+          <DependentUpon>EnrollmentsView.xaml</DependentUpon>
         </Compile>
         <Compile Include="Views\HomeView.xaml.cs">
           <DependentUpon>HomeView.xaml</DependentUpon>
@@ -117,6 +122,7 @@
       <Page Include="Views\AssignmentsView.xaml" />
       <Page Include="Views\ComplaintsView.xaml" />
       <Page Include="Views\CoursesView.xaml" />
+      <Page Include="Views\EnrollmentsView.xaml" />
       <Page Include="Views\HomeView.xaml" />
       <Page Include="Views\LoginView.xaml" />
       <Page Include="Views\MainView.xaml" />

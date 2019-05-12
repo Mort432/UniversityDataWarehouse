@@ -54,6 +54,7 @@
         <Compile Include="FactServices\CourseDimService.cs" />
         <Compile Include="FactServices\CourseFactService.cs" />
         <Compile Include="FactServices\DimServiceBase.cs" />
+        <Compile Include="FactServices\EnrollmentFactService.cs" />
         <Compile Include="FactServices\FactServiceBase.cs" />
         <Compile Include="FactServices\IAssignmentFactService.cs" />
         <Compile Include="FactServices\ICampusDimService.cs" />
@@ -61,6 +62,7 @@
         <Compile Include="FactServices\ICourseDimService.cs" />
         <Compile Include="FactServices\ICourseFactService.cs" />
         <Compile Include="FactServices\IDimService.cs" />
+        <Compile Include="FactServices\IEnrollmentFactService.cs" />
         <Compile Include="FactServices\IFactService.cs" />
         <Compile Include="FactServices\IModuleDimService.cs" />
         <Compile Include="FactServices\IService.cs" />
