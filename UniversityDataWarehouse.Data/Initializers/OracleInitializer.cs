@@ -7,6 +7,9 @@ namespace UniversityDataWarehouse.Data.Initializers
 {
     public class OracleInitializer : System.Data.Entity.CreateDatabaseIfNotExists<OracleContext>
     {
+        //This class tells Entity Framework where our seed files are,
+        //and to use them to add records to our operational database.
+        //We do them in this order so that foreign keys can be established.
         protected override async void Seed(OracleContext context)
         {
             //System-specific

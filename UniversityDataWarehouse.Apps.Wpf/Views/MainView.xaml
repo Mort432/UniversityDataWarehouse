@@ -11,6 +11,8 @@
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True">
     
+    <!-- This view provides the hamburger menu frame to the left of every other view -->
+    
     <mah:HamburgerMenu
         ItemsSource="{Binding MenuItems, Mode=OneWay}"
         SelectedItem="{Binding SelectedItem, Mode=TwoWay}">

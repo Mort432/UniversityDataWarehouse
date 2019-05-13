@@ -11,6 +11,9 @@ namespace UniversityDataWarehouse.Data.Contexts
 {
     public class OracleContext : DbContext
     {
+        //The oracle context is what Entity Framework uses to reference and access the Oracle database.
+        //We'll also use and dispose these to access DbSets, which represent the Object/Relational mapping point.
+        //(It lets us access the data without our eyes melting like we've just opened the Ark of the Covenant.)
         public OracleContext() : base("OracleContext")
         {
             Database.SetInitializer(new OracleInitializer());
@@ -36,6 +39,7 @@ namespace UniversityDataWarehouse.Data.Contexts
                 .Configure(ConfigurationAction);
         }
         
+        //Here we tell Entity Framework what tables we'd like, based on which models.
         //System-specific
         public DbSet<User> Users { get; set; }
         public DbSet<Permission> Permissions { get; set; }

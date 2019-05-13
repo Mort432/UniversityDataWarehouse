@@ -6,6 +6,7 @@ using UniversityDataWarehouse.Data.Entities.Dimensional;
 
 namespace UniversityDataWarehouse.Extensions
 {
+    // This extension class converts IEnumerables into observable points for LiveCharts consumption.
     public static class EnumerableExtension
     {
         public static IEnumerable<ObservablePoint> AsObservablePoints<TFact>(this IEnumerable<TFact> facts)

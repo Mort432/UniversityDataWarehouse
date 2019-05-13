@@ -6,6 +6,7 @@ using UniversityDataWarehouse.Apps.Wpf.Views;
 
 namespace UniversityDataWarehouse.Apps.Wpf.Modules
 {
+    // Modules are used by Prism to register views for navigation and region display.
     public class MainModule : IModule
     {
         public void RegisterTypes(IContainerRegistry containerRegistry)

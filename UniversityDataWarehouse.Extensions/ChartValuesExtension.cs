@@ -4,6 +4,7 @@ using LiveCharts.Wpf;
 
 namespace UniversityDataWarehouse.Extensions
 {
+    // This extension class is used to convert chart values into column series.
     public static class ChartValuesExtension
     {
         public static ColumnSeries AsColumnSeries(this IChartValues values)

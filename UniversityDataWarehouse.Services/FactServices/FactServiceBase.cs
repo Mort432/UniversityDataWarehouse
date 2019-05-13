@@ -10,6 +10,7 @@ namespace UniversityDataWarehouse.Services.FactServices
 {
     public abstract class FactServiceBase<TFact> : ServiceBase<TFact>, IFactService<TFact> where TFact: class, IFact
     {
+        //These are just used to quickly fetch out sums for simple aggregation at the front-end, if I remember correctly.
         public async Task<int> GetSumAsync()
         {
             using (var context = new OracleContext())
@@ -36,7 +37,6 @@ namespace UniversityDataWarehouse.Services.FactServices
 
         protected override IQueryable<TFact> GetQueryable(OracleContext context)
         {
-            // TODO - Check if the include is needed or will be done automatically by the virtual members.
             return base.GetQueryable(context).Include(fact => fact.AcademicYearDim);
         }
     }

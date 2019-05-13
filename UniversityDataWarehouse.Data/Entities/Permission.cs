@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UniversityDataWarehouse.Data.Entities
 {
+    //These don't get used, but I figured they might be handy at some point.
     public class Permission
     {
         [Key]

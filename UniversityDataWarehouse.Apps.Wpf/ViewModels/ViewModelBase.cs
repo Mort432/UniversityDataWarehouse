@@ -3,6 +3,8 @@ using Prism.Regions;
 
 namespace UniversityDataWarehouse.Apps.Wpf.ViewModels
 {
+    //By ensuring our view models inherit from this base class, we ensure that
+    //the Prism functionality needed for navigation and property/view binding is available.
     public abstract class ViewModelBase : BindableBase, IViewModel
     {
         public virtual bool IsNavigationTarget(NavigationContext navigationContext)

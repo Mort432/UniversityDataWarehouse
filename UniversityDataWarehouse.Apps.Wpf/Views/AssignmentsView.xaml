@@ -14,6 +14,11 @@
              mc:Ignorable="d"
              >
 
+    <!-- All the other chart views are essentially the same as this one.
+    We show a split view with the filters on one side, and the chart on the other.
+    Prism binds the view model for us, and this view binds on to the SeriesCollection provided
+    by the ChartViewModelBase (along with other elements like filters). -->
+    
     <mah:SplitView
         DisplayMode="Inline"
         IsPaneOpen="True">

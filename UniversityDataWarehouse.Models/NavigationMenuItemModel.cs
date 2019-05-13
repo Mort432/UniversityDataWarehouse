@@ -4,6 +4,7 @@ namespace UniversityDataWarehouse.Models
 {
     public class NavigationMenuItemModel
     {
+        //Boilerplate used to generate hamburger menu entries
         public NavigationMenuItemModel(string title, string icon, string view)
         {
             Title = title;

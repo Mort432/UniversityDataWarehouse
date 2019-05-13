@@ -5,6 +5,7 @@ using LiveCharts.Defaults;
 
 namespace UniversityDataWarehouse.Extensions
 {
+    // This extension class converts dictionaries into observable points for LiveCharts consumption.
     public static class DictionaryExtension
     {
         public static IEnumerable<ObservablePoint> AsObservablePoints(this IDictionary<int, int> dictionary)

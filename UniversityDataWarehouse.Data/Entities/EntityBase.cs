@@ -2,6 +2,8 @@ namespace UniversityDataWarehouse.Data.Entities
 {
     public abstract class EntityBase : IEntity
     {
+        //We know that every entity (excluding those without unique IDs like join tables)
+        //Is going to have an ID. So, why not give them a base class that gives them that for free?
         public int Id { get; set; }
 
         public bool Equals(IEntity other)
@@ -12,6 +14,8 @@ namespace UniversityDataWarehouse.Data.Entities
             return Id == other.Id;
         }
 
+        //By comparing IDs AND types, we can find out when two entities are the same!
+        //Hooray, determinism!
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;

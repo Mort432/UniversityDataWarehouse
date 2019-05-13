@@ -10,5 +10,6 @@
                  Title="University Data Warehouse"
                  mvvm:ViewModelLocator.AutoWireViewModel="True">
 
+    <!-- This view is used exclusively to frame other views. -->
     <ContentControl mvvm:RegionManager.RegionName="ContentRegion" />
 </mah:MetroWindow>
